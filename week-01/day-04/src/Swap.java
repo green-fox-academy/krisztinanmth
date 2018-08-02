@@ -3,13 +3,15 @@ public class Swap {
     int a = 123;
     int b = 526;
 
+    int temp;
+
+    temp = a;
+    a = b;
+    b = temp;
+
     System.out.println(a);
     System.out.println(b);
 
-    a = 526;
-    b = 123;
 
-    System.out.println(a);
-    System.out.println(b);
   }
 }
