@@ -3,7 +3,8 @@ public class Bmi {
     double massInKg = 81.2;
     double heightInM = 1.78;
 
-    double BMI = (massInKg / heightInM /heightInM);
+    double heightSquared = Math.pow(heightInM, 2);
+    double BMI = (massInKg / heightSquared);
 
     System.out.println(BMI);
   }
