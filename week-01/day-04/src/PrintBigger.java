@@ -8,14 +8,18 @@ public class PrintBigger {
     System.out.println("Please enter a number");
     double a = input.nextDouble();
 
-    System.out.println("Please enter another number");
+    System.out.println("Please enter a number");
     double b = input.nextDouble();
 
     if (a > b) {
-      System.out.println("The bigger number is " + a);
+      System.out.println("The bigger number is: " + a);
     }
-    else {
+    else if (a < b){
       System.out.println("The bigger number is: " + b);
     }
+    else {
+      System.out.println("The 2 entered numbers are the same");
+    }
+
   }
 }
