@@ -12,10 +12,11 @@ public class CountFromTo {
     int bigNumber = input.nextInt();
 
     if (bigNumber <= smallNumber) {
-      System.out.println("Please enter a bigger number than your first number. Thank you.");
+        System.out.println("Please enter a bigger number than your first number. Thank you.");
     }
-    else for (int i = smallNumber; i <= bigNumber; i++) {
-      System.out.println(i);
+
+    for (int i = smallNumber; i <= bigNumber; i++) {
+        System.out.println(i);
     }
   }
 }
