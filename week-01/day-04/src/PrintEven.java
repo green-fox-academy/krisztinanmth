@@ -3,7 +3,7 @@ public class PrintEven {
 
     int e = 2;
     while (e <= 500) {
-      System.out.println(" " + e);
+      System.out.println(e);
       e += 2;
     }
   }
