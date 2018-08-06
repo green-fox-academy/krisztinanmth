@@ -16,10 +16,12 @@ public class Matrix {
       for (int col = 0; col < matrix[row].length; col++) {
         matrix[row][col] = row * col;
         if (row == col) {
-          System.out.print(1);
+          matrix[row][col] = 1;
+          System.out.print(matrix[row][col]);
         }
         else {
-          System.out.print(0);
+          matrix[row][col] = 0;
+          System.out.print(matrix[row][col]);
         }
       }
       System.out.println();
