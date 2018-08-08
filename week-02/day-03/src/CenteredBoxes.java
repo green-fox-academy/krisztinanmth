@@ -11,7 +11,7 @@ public class CenteredBoxes {
     for (int i = 0; i < 3; i++) {
 
       //creating 'size' object for generating random numbers for sizes of boxes
-      int size = (int) (Math.random() * 150);
+      int size = (int) (Math.random() * 200);
       centerMyBoxesPlease(graphics, size);
     }
   }
