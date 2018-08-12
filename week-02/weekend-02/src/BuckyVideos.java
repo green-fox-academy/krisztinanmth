@@ -44,6 +44,13 @@ public class BuckyVideos {
       counter++;
     }
 
+    //conditional operators
+    int age2 = 65;
+    System.out.println(age2 > 50 ? "You are old" : "You are young");
+    //the first string will be output if boolean is true, the second after the : if boolean is false
 
+    for (int i = 1; i < 6; i++) {
+      System.out.print(i + " ");
+    }
   }
 }
