@@ -71,7 +71,7 @@ public class ArraysBucky {
     for (int counter = 0; counter < x.length; counter++) {
       x[counter] += 5;
     }
-  
+
     //MULTIDIMENSIONAL ARRAY
     int firstArray[][] = {{8, 9, 10, 11}, {12, 13, 14, 15}};
     int secondArray[][] = {{30, 31, 32, 33}, {43}, {4, 5, 6}};
