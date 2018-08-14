@@ -9,7 +9,7 @@ public class PrintEachLine {
     // each of the lines form the file.
     // If the program is unable to read the file (for example it does not exists),
     // then it should print an error message like: "Unable to read file: my-file.txt"
-    Path path = Paths.get("my-file.txt");
+    Path path = Paths.get("assets/my-file.txt");
     try {
       for(String line : Files.readAllLines(path)) {
         System.out.println(line);
