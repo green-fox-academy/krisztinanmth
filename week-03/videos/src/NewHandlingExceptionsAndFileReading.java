@@ -18,7 +18,7 @@ public class NewHandlingExceptionsAndFileReading {
     //with these we can do everything we did in previous part ... same java name in videos ... and much more
     //we still need to do the try and catch part though
 
-    //all the checkings returns booleans again
+    //all the checkings return booleans again
     Files.isReadable(path);
     Files.isWritable(path);
     Files.isDirectory(path);
