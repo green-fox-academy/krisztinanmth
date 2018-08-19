@@ -4,8 +4,24 @@
 //and it will turn it into military time and regular time
 
 
-public class TimeClasMain {
+public class TimeClassMain {
   public static void main(String[] args) {
+    TimeClass timeClassObject = new TimeClass();
+    System.out.println(timeClassObject.toMilitary());
+    System.out.println(timeClassObject.toString());
+    timeClassObject.setTime(13,27, 6);
+    System.out.println(timeClassObject.toMilitary());
+    System.out.println(timeClassObject.toString());
 
   }
 }
+
+
+
+
+
+
+
+
+
+
