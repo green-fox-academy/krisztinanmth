@@ -1,11 +1,13 @@
 public class Plant {
+  String type;
   String color;
   int waterLevel;
   int minWaterL;
   double waterPercentage;
   boolean needsWater;
 
-  Plant(String color, int waterLevel, int minWaterL, boolean needsWater) {
+  public Plant(String type, String color, int waterLevel, int minWaterL, boolean needsWater) {
+    this.type = type;
     this.color = color;
     this.waterLevel = waterLevel;
     this.minWaterL = minWaterL;
@@ -13,8 +15,8 @@ public class Plant {
   }
 
   public void needsWater() {
-    if(waterLevel < minWaterL) {
-      System.out.println("The " + color + " needs water");
+    if(waterLevel <= minWaterL) {
+      System.out.println("The " + color + type + " needs water");
     }
     else {
       System.out.println("The " + color + " doesn't need water");
