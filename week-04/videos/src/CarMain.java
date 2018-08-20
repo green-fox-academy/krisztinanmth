@@ -11,6 +11,6 @@ public class CarMain {
     System.out.println("Benz has "+ benz.getDoors()+ "doors");
     System.out.println("Benz is priced at "+ benz.getPrice()+ "dollars");
     System.out.println("The mileage being :" + benz.getMileage());
-    
+
   }
 }
