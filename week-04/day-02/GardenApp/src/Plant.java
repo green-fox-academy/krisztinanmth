@@ -1,31 +1,48 @@
+
 public class Plant {
-  String type;
-  String color;
-  int waterLevel;
-  int minWaterL;
-  double waterPercentage;
-  boolean needsWater;
+  private String type;
+  private String color;
+  private int waterLevel;
+  private int minWaterL;
+  private double waterPercentage;
 
-  public Plant(String type, String color, int waterLevel, int minWaterL, boolean needsWater) {
-    this.type = type;
+  public Plant(String color) {
     this.color = color;
-    this.waterLevel = waterLevel;
+    waterLevel = 0;
+  }
+
+  public boolean needsWater() {
+    if(waterLevel < minWaterL) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public void waterPlantPlease(int waterAmount) {
+    if (needsWater())
+    waterLevel += waterAmount * waterPercentage;
+  }
+
+  public void waterStatus() {
+    if (needsWater()) {
+      System.out.println("The " + color + " " + type + " needs water");
+    } else {
+      System.out.println("The " + color + " " + type + " doesn't need water");
+    }
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public void setMinWaterL(int minWaterL) {
     this.minWaterL = minWaterL;
-    this.needsWater = needsWater;
   }
 
-  public void needsWater() {
-    if(waterLevel <= minWaterL) {
-      System.out.println("The " + color + type + " needs water");
-    }
-    else {
-      System.out.println("The " + color + " doesn't need water");
-    }
-  }
-
-  public void plantWatered(int waterAmount) {
-    double succesfulWatering;
-    succesfulWatering = waterAmount * waterPercentage / 100;
+  public void setWaterPercentage(double waterPercentage) {
+    this.waterPercentage = waterPercentage;
   }
 }
+
 
