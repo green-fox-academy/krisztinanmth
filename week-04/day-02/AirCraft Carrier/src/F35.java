@@ -1,4 +1,2 @@
-package PACKAGE_NAME;
-
-public class F35 {
+public class F35 extends AirCraft {
 }

@@ -1,4 +1,2 @@
-package PACKAGE_NAME;
-
-public class F16 {
+public class F16 extends AirCraft {
 }
