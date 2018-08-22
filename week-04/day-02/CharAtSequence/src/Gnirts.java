@@ -2,7 +2,7 @@ public class Gnirts implements CharSequence {
   String str;
 
   public Gnirts(String str) {
-    this.str = str;
+   this.str = str;
   }
 
   @Override
@@ -12,7 +12,7 @@ public class Gnirts implements CharSequence {
 
   @Override
   public char charAt(int index) {
-    return 0;
+    return str.charAt(str.length() - index - 1);
   }
 
   @Override
