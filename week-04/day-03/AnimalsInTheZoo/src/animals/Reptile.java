@@ -2,8 +2,12 @@ package animals;
 
 public class Reptile extends Animal {
 
-  public String getName() {
-    this.name = "Crocodile";
-    return this.name;
+  public Reptile(String name) {
+    this.name = name;
+  }
+
+  @Override
+  public String breed() {
+    return "laying eggs";
   }
 }

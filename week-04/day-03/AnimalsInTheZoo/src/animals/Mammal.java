@@ -2,12 +2,11 @@ package animals;
 
 public class Mammal extends Animal {
 
-  public void breed() {
-    System.out.println("A " + name + " is breeding by pushing miniature versions out.");
+  public Mammal(String name) {
+    this.name = name;
   }
 
-  public String getName() {
-    this.name = "Koala";
-    return this.name;
+  public String breed() {
+    return "pushing miniature versions out.";
   }
 }
