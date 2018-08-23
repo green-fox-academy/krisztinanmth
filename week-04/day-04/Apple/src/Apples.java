@@ -1,6 +1,6 @@
 public class Apples {
 
-  String str = "apple";
+  String str = "apples";
 
   public String getApple() {
     return str;

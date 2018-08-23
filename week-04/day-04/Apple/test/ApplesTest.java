@@ -9,7 +9,7 @@ public class ApplesTest {
   @Test
   public void testPrintMessage() {
     Apples ap = new Apples();
-    Assert.assertEquals("apple", ap.getApple());
+    Assert.assertEquals("apples", ap.getApple());
   }
 
 }
