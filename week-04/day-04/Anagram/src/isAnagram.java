@@ -8,30 +8,13 @@ public class isAnagram {
   }
 
   public static boolean isAnagram(String str1, String str2) {
-    if(str1.length() != str2.length()) {
+    if(str1.length() != str2.length()){
       return false;
     }
     char[] arr1 = str1.toCharArray();
     char[] arr2 = str2.toCharArray();
     Arrays.sort(arr1);
     Arrays.sort(arr2);
-    if(arr1.equals(arr2)) {
-      return true;
-    } else {
-      return false;
-    }
-
-
-//  public static boolean isAnagram(String str1, String str2) {
-//    char[] arr1 = str1.toCharArray();
-//    char[] arr2 = str2.toCharArray();
-//    if (str1.length() == str2.length()) {
-//      Arrays.sort(arr1);
-//      Arrays.sort(arr2);
-//    } if (arr1.equals(arr2)) {
-//        return true;
-//      } else {
-//        return false;
-//      }
+    return Arrays.equals(arr1, arr2);
   }
 }
