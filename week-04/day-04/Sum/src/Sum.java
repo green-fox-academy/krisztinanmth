@@ -2,19 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sum {
-  List<Integer> listOfNumbers;
+  List<Integer> listOfNumbers = new ArrayList<>();
 
-  public Sum() {
-    listOfNumbers = new ArrayList<>();
-  }
 
-  public void add(int number) {
-    listOfNumbers.add(number);
-  }
 
-  public int sum(ArrayList<Integer> listOfNumbers) {
+  public int sumOfTheElements() {
     int sum = 0;
     for (int i = 0; i < listOfNumbers.size() ; i++) {
+      sum += listOfNumbers.get(i);
     }
     return sum;
   }

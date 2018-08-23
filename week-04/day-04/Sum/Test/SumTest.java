@@ -1,11 +1,13 @@
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
-public class SumTest {
+class SumTest {
+
+
 
   @Test
-  public void IsSumWorking() {
-    Sum sum = new Sum();
+  public void testWithEmptyList() {
+    Sum list = new Sum();
+    assertEquals(0, list.sumOfTheElements());
   }
 }
