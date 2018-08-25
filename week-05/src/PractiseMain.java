@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class PractiseMain {
   public static void main(String[] args) {
     String name = "krisztina";
@@ -89,10 +91,66 @@ public class PractiseMain {
     int timePast = 14 * 60 * 60 + 34 * 60 + 42;
     System.out.println("we have " + secondsInADay + " seconds every day");
     System.out.println("seconds left from today : " + (secondsInADay - timePast));
+    System.out.println();
 
     // Write a program that asks for two integers
     // The first represents the number of chickens the farmer has
     // The second represents the number of pigs owned by the farmer
     // It should print how many legs all the animals have
+    Scanner myScanner = new Scanner(System.in);
+    System.out.println("please enter the number of chickens the farmer has: ");
+    int chickens = myScanner.nextInt();
+    System.out.println("please enter the number of pigs the farmer owns: ");
+    int pigs = myScanner.nextInt();
+    int legs = (chickens * 2) + (pigs * 4);
+    System.out.println("the animals have " + legs + " legs altogether");
+    System.out.println();
+
+    // Write a program that asks for 5 integers in a row,
+    // then it should print the sum and the average of these numbers like:
+    //
+    // Sum: 22, Average: 4.4
+
+    Scanner myScanner2 = new Scanner(System.in);
+    System.out.println("please provide 5 numbers");
+    double firstNumber = myScanner2.nextDouble();
+    double secondNumber = myScanner2.nextDouble();
+    double thirdNumber = myScanner2.nextDouble();
+    double fourthNumber = myScanner2.nextDouble();
+    double fifthNumber = myScanner2.nextDouble();
+
+    double sumOfNumbers = firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber;
+    double averageOfNumbers = sumOfNumbers / 5;
+    System.out.println("sum of numbers: " + sumOfNumbers);
+    System.out.println("average of numbers: " + averageOfNumbers);
+    System.out.println();
+
+
+    // Write a program that reads a number from the standard input,
+    // Then prints "Odd" if the number is odd, or "Even" if it is even.
+    Scanner myScanner3 = new Scanner(System.in);
+    System.out.println("please provide a number so i can decide if it's odd or even");
+    int number = myScanner3.nextInt();
+
+    if (number % 2 == 0) {
+      System.out.println("the number you provided is even");
+    } else {
+      System.out.println("the number you provided is odd");
+    }
+    System.out.println();
+
+
+    // Write a program that asks for two numbers and prints the bigger one
+    Scanner myScanner4 = new Scanner(System.in);
+    System.out.println("please provide 2 numbers, so i can tell you which is the bigger one");
+    double isBigger1 = myScanner4.nextDouble();
+    double isBigger2 = myScanner4.nextDouble();
+
+    if (isBigger1 > isBigger2) {
+      System.out.println(isBigger1);
+    } else {
+      System.out.println(isBigger2);
+    }
+    System.out.println();
   }
 }
