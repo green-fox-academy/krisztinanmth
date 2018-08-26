@@ -11,7 +11,7 @@ public class TrickyAverageTest {
 
   @Test
   public void getTrickyAvg_testCase1() {
-
+    int[] arr1 = {1, 2, 3};
   }
 
   @Test
