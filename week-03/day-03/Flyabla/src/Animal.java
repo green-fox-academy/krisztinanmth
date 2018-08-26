@@ -4,9 +4,9 @@ public abstract class Animal {
   String color;
   int maxSpeed;
 
-  public String getName(){
-    return this.name;
-  }
+//  public String getName(){
+//    return this.name;
+//  }
 
   public abstract String breed();
 }
