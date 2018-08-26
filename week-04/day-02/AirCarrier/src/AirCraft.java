@@ -3,41 +3,39 @@ public class AirCraft {
   int baseDamage;
   int ammoLevel;
   String type;
-  int damage;
+  boolean isPriority;
 
-  public int fight() {
-    for (int i = ammoMax; i > 0 ; i--) {
-      ammoLevel--;
-      damage = baseDamage * ammoLevel;
-    }
-    return damage;
-  }
-
-  public int refill(int refill) {
-    for (int i = ammoLevel; i < ammoMax ; i++) {
-      ammoLevel++;
-    } return refill - ammoLevel;
-  }
-
-//  public String getStatus() {
-//    for(AirCraft airCraft : carrier)
-//    return ("Type " + type + ", Ammo: " + ammoLevel + ", Base Damage: " + baseDamage + ", All Damage: " + damage);
-//  }
-
-
-  public void setAmmoMax(int ammoMax) {
+  public AirCraft(String type, int ammoMax, int baseDamage, boolean isPriority) {
+    this.type = type;
     this.ammoMax = ammoMax;
-  }
-
-  public void setBaseDamage(int baseDamage) {
     this.baseDamage = baseDamage;
-  }
-
-  public void setAmmoLevel(int ammoLevel) {
+    this.isPriority = isPriority;
     this.ammoLevel = ammoLevel;
   }
+  public int fight() {
+    int damage = baseDamage * ammoLevel;
+    ammoLevel = 0;
+    return damage;
+  }
+  public int refill(int ammoToFillWith) {
+    int ammoNecessary = ammoMax - ammoLevel;
 
-  public void setType(String type) {
-    this.type = type;
+    if (ammoToFillWith == 0 || ammoNecessary == 0) {
+      return ammoToFillWith;
+    } else if (ammoNecessary <= ammoToFillWith) {
+      return ammoToFillWith - ammoNecessary;
+    } else {
+      ammoLevel = ammoMax;
+      return ammoToFillWith - ammoMax;
+    }
+  }
+  public String getType() {
+    return type;
+  }
+  public String getStatus() {
+    return "type: " + type + ", ammo: " + ammoLevel + ", base damage: " + baseDamage + ", all damage: " + baseDamage * ammoLevel;
+  }
+  public boolean isPriority() {
+    return isPriority;
   }
 }
