@@ -1,14 +1,13 @@
 public class Hero extends BaseHero implements Punchable{
-  double motivation;
-  String characterName;
+  private int motivation;
 
-  public Hero(String characterName) {
-    super(characterName);
+  public Hero(String name, int motivation) {
+    super(name);
+    this.motivation = motivation;
   }
 
   @Override
   public void punch(Punchable other) {
-
   }
 
   public int getMotivationLevel() {
@@ -21,25 +20,21 @@ public class Hero extends BaseHero implements Punchable{
     }
   }
 
-  public void punch(String characterName) {
-    double damage;
-    double divider = 1.5;
-    if (getMotivationLevel() >= 1) {
-      damage = motivation / divider;
-    }
+  public int getMotivation() {
+    return this.motivation;
   }
 
   public void bePunched(double damage) {
-    motivation = motivation - (damage / motivation);
+    motivation = (int) (motivation - (damage / motivation));
   }
-
-  public String toString(String characterName) {
+  @Override
+  public String toString() {
     if (getMotivationLevel() == 0) {
-      return characterName + "is not motivated anymore";
+      return getName() + " is not motivated anymore";
     } else if (getMotivationLevel() == 1) {
-      return characterName + "is motivated";
+      return getName() + " is motivated";
     } else {
-      return characterName + "is well motivated";
+      return getName() + " is well motivated";
     }
   }
 }
