@@ -1,9 +1,14 @@
-public class Hero {
+public class Hero extends BaseHero implements Punchable{
   double motivation;
   String characterName;
 
   public Hero(String characterName) {
-    this.characterName = characterName;
+    super(characterName);
+  }
+
+  @Override
+  public void punch(Punchable other) {
+
   }
 
   public int getMotivationLevel() {
@@ -24,9 +29,8 @@ public class Hero {
     }
   }
 
-  public double bePunched(double damage) {
+  public void bePunched(double damage) {
     motivation = motivation - (damage / motivation);
-    return motivation;
   }
 
   public String toString(String characterName) {

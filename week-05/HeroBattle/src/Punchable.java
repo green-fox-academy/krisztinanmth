@@ -1,2 +1,5 @@
-public class Punchable {
+public interface Punchable {
+
+  void bePunched(double damage);
+
 }
