@@ -43,7 +43,7 @@ public class MostProductiveYear {
         map.put(year, map.get(year) + 1);
       }
     }
-    
-    return "The " + filename + " has made the most movies in " + stringOfLargest;
+
+    return "The " + filename + " has made the most movies in " + //stringOfLargest;
   }
 }
