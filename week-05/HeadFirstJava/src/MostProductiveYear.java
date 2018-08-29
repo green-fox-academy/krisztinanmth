@@ -1,49 +1,44 @@
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MostProductiveYear {
+  /**
+   * Write a method that helps you find the most productive year for a film studio.
+   * The method should take one argument, which is the name of the film studio.
+   * The method should try to open the related data file named `studioname`.csv,
+   * which is a comma separated file with 3 columns: name of the movie, release year, director
+   *
+   *  - If we do not have any data about the studio, the method should return an error message.
+   *  - If we have found data, the method should return an information message about the most productive year for that studio.
+   *
+   * Examples:
+   *
+   * If we call the method with 'marvel':
+   * should return 'marvel has made the most movies in 2017.'
+   *
+   * If we call the method with 'ghibli':
+   * should print 'Cannot find studio, please try again later.'
+   *
+   * Hint:
+   *  - You can find some example files in this folder (marvel.csv and paramount.csv)
+   *  - Most productive year: The year in which the studio has made the most movies.
+   */
   public static void main(String[] args) {
-    //nameOfFilmStudio - is the path for files
-    //either "assets/marvel.csv"
-    //or "assets/paramount.csv"
-    String path1 = "assets/paramount";
-    String path2 = "assets/marvel";
-    String name1 = "paramount";
-    String name2 = "marvel";
-    String name3 = "ghibli";
-    String path3 = "assets/ghibli";
-//    System.out.println(mostProductiveYear(name1, path1));
-//    System.out.println(mostProductiveYear(name2, path2));
-//    System.out.println(mostProductiveYear(name3, path3));
-
-
+    System.out.println(readFile("paramount"));
   }
 
-//  static String mostProductiveYear(String filename, String path) {
-//    List<String> linesOfInputFile = null;
-//    ArrayList<String> yearList = new ArrayList<>();
-//    try {
-//      linesOfInputFile = Files.readAllLines(Paths.get(path + ".csv"));
-//    } catch (IOException e) {
-//      return "Cannot find studio, please try again later.";
-//    }
-//    Map<String, Integer> map = new HashMap<>();
-//    String year = null;
-//    for (String line : linesOfInputFile) {
-//      year = line.split(",")[1];
-//      if (map.get(year) == null) {
-//        map.put(year, 1);
-//      } else {
-//        map.put(year, map.get(year) + 1);
-//      }
-//    }
-//
-//    return "The " + filename + " has made the most movies in " + //stringOfLargest;
-//  }
+  public static List<String> readFile(String name) {
+    List<String> lines = new ArrayList<>();
+    try {
+      Path filePath = Paths.get("assets/" + name + ".csv");
+      lines = Files.readAllLines(filePath);
+    } catch (Exception e) {
+      System.out.println("file is not found or not readable, sorry");
+    }
+
+    return lines;
+  }
 }
