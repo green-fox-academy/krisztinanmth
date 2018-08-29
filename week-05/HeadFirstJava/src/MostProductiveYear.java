@@ -13,7 +13,7 @@ public class MostProductiveYear {
     System.out.println(mostProductiveYear("ghibli"));
   }
 
-  private static String mostProductiveYear(String studioName) {
+  public static String mostProductiveYear(String studioName) {
     String shoutThis;
     List<String> lines  = new ArrayList<>();
     Map<String, Integer> yearCount = new HashMap<>();
