@@ -12,19 +12,25 @@ public class TrickyAverage {
    * [5, 2, 8, -1] -> should return 3.5
    */
   public static void main(String[] args) {
-    double[] arr1 = {1, 2, 3};
-    double[] arr2 = {3, 4, 5, 6};
-    double[] arr3 = {5, 2, 8, -1};
-    System.out.println(smallestOdd(arr2));
-    System.out.println(largestEven(arr2));
+    int[] arr1 = {1, 2, 3};
+    int[] arr2 = {3, 4, 5, 6};
+    int[] arr3 = {5, 2, 8, -1};
+    System.out.println((int)smallestOdd(arr1));
+    System.out.println((int)largestEven(arr1));
+    System.out.println(getTrickyAverage(arr1));
+    System.out.println((int)smallestOdd(arr2));
+    System.out.println((int)largestEven(arr2));
     System.out.println(getTrickyAverage(arr2));
+    System.out.println((int)smallestOdd(arr3));
+    System.out.println((int)largestEven(arr3));
+    System.out.println(getTrickyAverage(arr3));
 
   }
 
-  public static double smallestOdd(double[] array) {
+  public static double smallestOdd(int[] array) {
     double smallestOdd = array[0];
     for (int i = 0; i < array.length ; i++) {
-      if (array[i] % 2 == 1) {
+      if (array[i] % 2 != 0) {
         if (smallestOdd > array[i]) {
           smallestOdd = array[i];
         }
@@ -33,7 +39,7 @@ public class TrickyAverage {
     return smallestOdd;
   }
 
-  public static double largestEven(double[] array) {
+  public static double largestEven(int[] array) {
     double largestEven = array[0];
     for (int i = 0; i < array.length ; i++) {
       if (array[i] % 2 == 0 && largestEven < array[i]) {
@@ -42,7 +48,7 @@ public class TrickyAverage {
     }
     return largestEven;
   }
-  public static double getTrickyAverage(double[] array) {
+  public static double getTrickyAverage(int[] array) {
     double average = (smallestOdd(array) + largestEven(array)) / 2;
     return average;
   }

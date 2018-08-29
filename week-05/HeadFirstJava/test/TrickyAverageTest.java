@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TrickyAverageTest {
@@ -11,14 +12,14 @@ public class TrickyAverageTest {
 
   @Test
   public void getTrickyAvg_testCase1() {
-    int[] arr1 = {1, 2, 3};
+    int[] example = {1, 3, 7, 8};
+    assertEquals((double) (1 + 8) / 2, TrickyAverage.getTrickyAverage(example), 0);
   }
 
   @Test
   public void getTrickyAvg_testCase2() {
-    /*
-     * create a test case
-     */
+    int[] example = {-4, -5, -6, 18, 32};
+    assertEquals((double) (32 + -5) / 2, TrickyAverage.getTrickyAverage(example), 0);
   }
 
 
