@@ -2,6 +2,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Logs {
@@ -14,20 +15,21 @@ public class Logs {
   }
 
   public static String findIPs() {
-    List<String> lines = new ArrayList<>();
-    String IPaddress = "";
+    List<String> lines;
+    String IPAddress = "";
     int myIndex;
+    HashMap<String, Integer> uniqueIPs = new HashMap<>();
     try {
       Path filePath = Paths.get("assets/log.txt");
       lines = Files.readAllLines(filePath);
       for (int i = 0; i < lines.size() ; i++) {
         myIndex = lines.get(i).indexOf("   ");
-        IPaddress = lines.get(i).substring(myIndex, myIndex + 14);
+        IPAddress = lines.get(i).substring(myIndex, myIndex + 14);
       }
     } catch (Exception e) {
       System.out.println("file is not found or not readable, sorry");
     }
 
-    return IPaddress;
+    return IPAddress;
   }
 }
