@@ -2,6 +2,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MostProductiveYear {
@@ -27,18 +28,33 @@ public class MostProductiveYear {
    *  - Most productive year: The year in which the studio has made the most movies.
    */
   public static void main(String[] args) {
-    System.out.println(readFile("paramount"));
+    System.out.println(mostProductiveYear("paramount"));
   }
 
-  public static List<String> readFile(String name) {
-    List<String> lines = new ArrayList<>();
+  public static String mostProductiveYear(String name) {
+    List<String> lines;
+    int myIndex;
+    String year = "";
+    HashMap<String, Integer> mostProductiveYear = new HashMap<>();
     try {
       Path filePath = Paths.get("assets/" + name + ".csv");
       lines = Files.readAllLines(filePath);
+      for (int i = 0; i < lines.size() ; i++) {
+        //i need lines.get(i) before .indexOf to get the i-edik :) line - so first the first then second then etc...
+        myIndex = lines.get(i).indexOf("19");
+        //i need the if because in some cases the year starts with 19, in other cases it starts with 20
+        if (myIndex == -1) {
+          myIndex = lines.get(i).indexOf("20");
+        }
+        year = lines.get(i).substring(myIndex, myIndex + 4);
+//        if (!mostProductiveYear.containsKey(year)) {
+//          mostProductiveYear.put();
+//        }
+      }
     } catch (Exception e) {
       System.out.println("file is not found or not readable, sorry");
     }
 
-    return lines;
+    return year;
   }
 }
