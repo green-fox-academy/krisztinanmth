@@ -30,8 +30,14 @@ public class UniqueChars {
     return uniqueChars;
   }
 
-  private static List<Character> uniqueCharactersWithCharacterList(String myWord) {
-    
-  }
+//  private static List<Character> uniqueCharactersWithCharacterList(String myWord) {
+//    List<Character> uniqueChars = new ArrayList<>();
+//    HashMap<Character, Integer> countedChars = new HashMap<>();
+//    for (int i = 0; i < myWord.length() ; i++) {
+//      if (!countedChars.containsKey(myWord.charAt(i))) {
+//
+//      }
+//    }
+//  }
 
 }
