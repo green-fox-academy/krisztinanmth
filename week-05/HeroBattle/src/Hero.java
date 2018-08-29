@@ -8,6 +8,10 @@ public class Hero extends BaseHero implements Punchable{
 
   @Override
   public void punch(Punchable other) {
+    double damage = getMotivation() / 1.5;
+    if (getMotivationLevel() >= 1) {
+      other.bePunched(damage);
+    }
   }
 
   public int getMotivationLevel() {
@@ -25,8 +29,9 @@ public class Hero extends BaseHero implements Punchable{
   }
 
   public void bePunched(double damage) {
-    motivation = (int) (motivation - (damage / motivation));
+    this.motivation -= damage / this.motivation;
   }
+
   @Override
   public String toString() {
     if (getMotivationLevel() == 0) {
