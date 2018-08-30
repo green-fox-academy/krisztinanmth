@@ -9,7 +9,7 @@ public class PirateShip {
   }
 
   public void fillShip() {
-    for (int i = 0; i < (Math.random() * 33 ); i++) {
+    for (int i = 0; i < (int) (Math.random() * 33); i++) {
       pirates.add(new Pirate());
     }
     pirates.get(0).drinkSomeRum();
