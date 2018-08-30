@@ -35,6 +35,18 @@ public class UniqueCharsTest {
   }
 
   @Test
+  public void testAssertNotEquals() {
+    String example = "mmaagilinii";
+    List<String> testList = new ArrayList<>(Arrays.asList("l", "n", ""));
+    boolean isUnique = true;
+    for (int i = 0; i < testList.size(); i++) {
+      if (!UniqueChars.uniqueCharacters(example).contains(testList.get(i))) {
+      } isUnique = false;
+    }
+    assertFalse(isUnique);
+  }
+
+  @Test
   public void testWithNoUnique() {
     String example = "bbeellaa";
     List<String> testNoUnique = new ArrayList<>();
