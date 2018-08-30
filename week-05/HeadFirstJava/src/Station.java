@@ -18,6 +18,6 @@ public class Station {
   }
 
   public static void main(String[] args) {
-    
+
   }
 }

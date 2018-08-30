@@ -23,11 +23,7 @@ public class Lottery {
     }
     for (int i = 0; i < lines.size() ; i++) {
       String[] splitLines = lines.get(i).split(";");
-      //
-      //ask kriszti!!!!!
-      //why do i need to start the nested j for loop with 1 and not zero
-      //
-      for (int j = 1; j <= 5 ; j++) {
+      for (int j = 1; j <= 5; j++) {
         String lottoNums = splitLines[splitLines.length - j];
         if (!mostCommonNumbers.containsKey(lottoNums)) {
           mostCommonNumbers.put(lottoNums, 1);
