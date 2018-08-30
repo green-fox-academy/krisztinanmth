@@ -16,8 +16,8 @@ public class RegularExpressionsToCountWordsInText {
   public static List<String> readFile() {
     List<String> lines = new ArrayList<>();
     try {
-      Path filePath = Paths.get("assets/williamBlake.txt");
-      lines = Files.readAllLines(filePath);
+      //Path filePath = Paths.get("assets/williamBlake.txt");
+      lines = Files.readAllLines(Paths.get("assets/williamBlake.txt"));
     } catch (IOException e) {
       System.out.println("file is not found or readable, sorry");
     }
