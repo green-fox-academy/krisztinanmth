@@ -1,10 +1,19 @@
-public class Animal {
+public abstract class Animal implements Feedable {
+
   private String color;
   private int age;
   private double weight;
 
-  public Animal() {
+  public Animal(String color, int age, double weight) {
+    this.color = color;
+    this.age = age;
+    this.weight = weight;
+  }
 
+  abstract void sleep();
+
+  public void eat() {
+    System.out.println("The animal is eating");
   }
 
   public String getColor() {
@@ -29,13 +38,5 @@ public class Animal {
 
   public void setWeight(double weight) {
     this.weight = weight;
-  }
-
-  public Animal(String color, int age, double weight) {
-    this.color = color;
-    this.age = age;
-    this.weight = weight;
-
-
   }
 }
