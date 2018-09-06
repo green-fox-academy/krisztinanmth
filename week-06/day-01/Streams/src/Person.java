@@ -13,15 +13,7 @@ public class Person {
     return famName;
   }
 
-  public void setFamName(String famName) {
-    this.famName = famName;
-  }
-
   public String getFirstName() {
     return firstName;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
   }
 }
