@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class StreamsExample1 {
 
@@ -17,10 +18,33 @@ public class StreamsExample1 {
     //from Java-8 every collections comes with a built-in stream method ... sweet :)
 
     people.stream()
+      //if we want to have multiple actions with one list we can do it
+      //in a stream without looping through many times
       .filter(p -> p.getFirstName().startsWith("c"))
       // filter with the 'predicate'is like quality control :)
       //so with filter first we filter the collection and we will just print
       //out the famNames of those, whose firstName starts with a c letter
       .forEach(p -> System.out.println(p.getFamName()));
+
+    //or we can introduce a local stream variable
+//    Stream<Person> stream = people.stream();
+
+
+    long count = people.stream()
+      //inside the stream we have the lambda expression(s) as below
+      .filter(p -> p.getFirstName().startsWith("c"))
+      .count();
+    System.out.println(count );
+
+    //or we can also do parallel streaming
+    //        people.parallelStream()
+    //look into it
   }
 }
+
+
+
+
+
+
+
