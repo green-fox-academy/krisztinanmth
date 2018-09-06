@@ -23,6 +23,6 @@ public class Persona {
 
   @Override
   public String toString() {
-    return String.format("%s - - %s - - %d", name, gender, age);
+    return String.format("%s == %s == %d", name, gender, age);
   }
 }
