@@ -15,7 +15,7 @@ public class Animal {
 //    this.type = type;
 //  }
 
-  public boolean isAdopted(String type) {
+  public boolean isAdopted() {
     return isAdopted;
   }
 

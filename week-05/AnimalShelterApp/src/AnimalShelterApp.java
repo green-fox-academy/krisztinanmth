@@ -20,8 +20,7 @@ I’ll have some free time tomorrow afternoon, you can find me in GF. Contact me
     shelter.addAnimalsToShelterList(new Animal("chinchilla"));
     shelter.addAnimalsToShelterList(new Animal("koala"));
     shelter.addAnimalsToShelterList(new Animal("turtleTeki"));
-    People jani = new People("jani");
-//    jani.adoptAnimals();
+
     System.out.println(shelter.logAnimalsInShelterList());
   }
 }

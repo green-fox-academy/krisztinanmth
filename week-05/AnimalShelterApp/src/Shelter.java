@@ -5,10 +5,12 @@ import java.util.List;
 public class Shelter {
   List<Animal> animalsInShelter;
   List<People> adopters;
+  List<Animal> adoptedAnimals;
 
   public Shelter() {
     animalsInShelter = new ArrayList<>();
     adopters = new ArrayList<>();
+    adoptedAnimals = new ArrayList<>();
   }
 
   public void addAnimalsToShelterList(Animal animal) {
@@ -19,7 +21,13 @@ public class Shelter {
     adopters.add(person);
   }
 
-  public
+  public void adopt(People person) {
+    for (int i = 0; i < animalsInShelter.size() ; i++) {
+      animalsInShelter.get(i).setAdopted();
+      animalsInShelter.remove(animalsInShelter.get(i));
+      adoptedAnimals.add(animalsInShelter.get(i));
+    }
+  }
 
   public String logAnimalsInShelterList() {
     String log1 = "you have " + animalsInShelter.size() + " animals in the shelter \nthese are: \n";
