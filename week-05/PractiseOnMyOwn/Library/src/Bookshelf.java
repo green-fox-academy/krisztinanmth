@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Bookshelf {
-  List<Book> books;
+  private List<Book> books;
 
   public Bookshelf() {
     books = new ArrayList<>();
@@ -15,6 +15,7 @@ public class Bookshelf {
     for (int i = 0; i < books.size() ; i++) {
       if (books.get(i).getTitle().equals(title)) {
         books.remove(i);
+        break;
       }
     }
   }
