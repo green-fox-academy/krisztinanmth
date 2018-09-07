@@ -15,15 +15,11 @@ public class Shelter {
     animalsInShelter.add(animal);
   }
 
-  public void removeAnimalsFromShelterList(Animal animal) {
-    if (animal.isAdopted("")) {
-      animalsInShelter.remove(animal);
-    }
-  }
-
   public void addPeopleToAdopters(People person) {
     adopters.add(person);
   }
+
+  public
 
   public String logAnimalsInShelterList() {
     String log1 = "you have " + animalsInShelter.size() + " animals in the shelter \nthese are: \n";

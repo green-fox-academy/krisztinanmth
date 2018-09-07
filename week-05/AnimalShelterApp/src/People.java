@@ -4,4 +4,10 @@ public class People {
   public People(String name) {
     this.name = name;
   }
+
+  public void adoptAnimals() {
+//    animal.setAdopted();
+//    return animal.isAdopted("");
+
+  }
 }

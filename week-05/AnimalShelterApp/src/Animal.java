@@ -11,16 +11,16 @@ public class Animal {
     return type;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+//  public void setType(String type) {
+//    this.type = type;
+//  }
 
   public boolean isAdopted(String type) {
     return isAdopted;
   }
 
-  public void setAdopted(boolean adopted) {
-    isAdopted = adopted;
+  public void setAdopted() {
+    boolean isAdopted = true;
   }
 
   //  public boolean adoptAnimals(Animal animal) {
