@@ -14,6 +14,12 @@ public class AnimalShelterApp {
 I’ll have some free time tomorrow afternoon, you can find me in GF. Contact me if you’d like me to help in anything then.
    */
   public static void main(String[] args) {
-
+    Shelter shelter = new Shelter();
+    shelter.addAnimalsToShelterList(new Animal("cheetah"));
+    shelter.addAnimalsToShelterList(new Animal("panda"));
+    shelter.addAnimalsToShelterList(new Animal("chinchilla"));
+    shelter.addAnimalsToShelterList(new Animal("koala"));
+    shelter.addAnimalsToShelterList(new Animal("turtleTeki"));
+    System.out.println(shelter.logAnimalsInShelterList());
   }
 }
