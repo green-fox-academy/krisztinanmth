@@ -4,6 +4,8 @@ public class AntiDiagonal {
     int[][] array2 = {{3, 5, 11, -2}, {3, 1, 7, 4}, {5, 0, 2, 9},{21, 7, 8, 2}};
     System.out.println(getAntiDiagonalAvg(array1));
     System.out.println(getAntiDiagonalAvg(array2));
+    System.out.println(getDiagonalAverage(array1));
+    System.out.println(getDiagonalAverage(array2));
   }
 
   /**
@@ -34,7 +36,15 @@ public class AntiDiagonal {
     for (int i = 0; i < matrix.length; i++) {
       sum += matrix[i][matrix.length - 1 - i];
     }
-
     return (double) sum / matrix.length;
+  }
+
+  public static double getDiagonalAverage(int[][] matrix) {
+    int sum = 0;
+    for (int i = 0; i < matrix.length ; i++) {
+      sum += matrix[i][i];
+    }
+    return (double) sum / matrix.length;
+    //i need to cast the return type here as (double) as both sum and matrix.length are integers
   }
 }
