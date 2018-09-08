@@ -17,5 +17,18 @@ public class Exercise6 {
       .collect(Collectors.toList());
     System.out.println("cities, which start with A & end with I, found with stream");
     System.out.println(citiesStartsAEndsI);
+
+    System.out.println();
+    System.out.println("cities, which start with A & end with I, found with method");
+//    findCitiesStartingWithA(cities);
   }
+
+//  private static void findCitiesStartingWithA(List cities) {
+//    String citiesCommaSeparated = String.join(", ", cities);
+//    String[] cityArray = citiesCommaSeparated.split(",");
+//    for (int i = 0; i < cityArray.length ; i++) {
+//      if (cityArray[i].charAt(0);
+//
+//    }
+//  }
 }
