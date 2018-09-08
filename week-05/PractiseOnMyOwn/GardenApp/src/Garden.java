@@ -21,6 +21,7 @@ public class Garden {
   }
 
   public void waterMyGarden(int water) {
+    System.out.println("watering with " + water);
     List<Plants> listOfPlantsWhoNeedWater = listOfPlantsWhoNeedWater();
     double waterForOnePlant = (double) water / listOfPlantsWhoNeedWater.size();
     for (Plants plant : listOfPlantsWhoNeedWater) {

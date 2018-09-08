@@ -57,10 +57,8 @@ public class GardenApp {
     garden.addPlants(new Trees("orange"));
     System.out.println();
     System.out.println(garden.logGarden());
-    System.out.println("watering with 40");
     garden.waterMyGarden(40);
     System.out.println(garden.logGarden());
-    System.out.println("watering with 70");
     garden.waterMyGarden(70);
     System.out.println(garden.logGarden());
   }
