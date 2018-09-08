@@ -13,12 +13,13 @@ public class Exercise7 {
     System.out.println(count2);
 
     System.out.println("frequency of 'e' with method: ");
-    System.out.println(countOccurence(example, 'e'));
+    System.out.println(countOccurrence(example, 'e'));
     System.out.println("frequency of 't' with method: ");
-    System.out.println(countOccurence(example, 't'));
+    System.out.println(countOccurrence(example, 't'));
+    
   }
 
-  private static int countOccurence(String example, char searchedChar) {
+  private static int countOccurrence(String example, char searchedChar) {
     int counter = 0;
     for (int i = 0; i < example.length() ; i++) {
       if (example.charAt(i) == searchedChar) {
