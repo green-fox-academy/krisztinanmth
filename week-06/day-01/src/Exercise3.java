@@ -16,6 +16,7 @@ public class Exercise3 {
         .filter(n -> n > 0)
         .map(n -> n * n)
         .collect(Collectors.toList());
+    System.out.println("squared positives with stream: ");
     System.out.println(listOFSquaredPosNumbers);
 
     System.out.println();
