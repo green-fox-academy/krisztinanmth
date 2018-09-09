@@ -1,10 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Map.Entry;
 
 public class Exercise8 {
 
@@ -18,5 +14,28 @@ public class Exercise8 {
       numbers.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting()));
     System.out.println("frequency of numbers found with stream expression: ");
     System.out.println(numbersToCount);
+    System.out.println("frequency of numbers found with method: ");
+    System.out.println(countFrequencyOfNumbers(numbers));
+  }
+
+  /**
+   * nem az a lenyeg hogy mikor kezded, hanem hogy mikor hagyod abba :D :D :D
+   */
+
+
+  private static Map<Integer, Integer> countFrequencyOfNumbers(List numbers) {
+    Map<Integer, Integer> countMap = new HashMap<>();
+    for (int i = 0; i < numbers.size() ; i++) {
+      int key = (int) numbers.get(i);
+      if (countMap.containsKey(key)) {
+        int count = countMap.get(key);
+        count++;
+        countMap.put(key, count);
+      }
+      else {
+        countMap.put(key, 1);
+      }
+    }
+    return countMap;
   }
 }
