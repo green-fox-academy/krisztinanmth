@@ -1,26 +1,34 @@
-public class AnimalShelterApp {
-  /*
-  Hey guys! I’m sorry that I haven’t sent you OO practice exercise yet.
-1. If you haven’t solved the Garden application by yourself, do that.
-2. If you haven’t solved the Aircraft carrier exercise by yourself, do that
-3. If you haven’t solved the Pirate exercise till you can fight with ships, do that
-4. If you done all of that (you shouldn't care about the exam ;)), create an animal shelter application where
-- animals can be stored in a list
-- animals can be adopted by people
-- one person can adopt many animals, but one can be adopted by only one person
-- if an animal is adopted, it is no longer listed in the shelter, but belongs to the
- adopter person, and the owner of the animal is also stored in the animal object
 
-I’ll have some free time tomorrow afternoon, you can find me in GF. Contact me if you’d like me to help in anything then.
+public class AnimalShelterApp {
+  /**
+   * create an animal shelter application where
+   * - animals can be stored in a list
+   * - animals can be adopted by people
+   * - one person can adopt many animals, but one can be adopted by only one person
+   * - if an animal is adopted, it is no longer listed in the shelter,
+   *
+   * but belongs to the
+   *  adopter person, and the owner of the animal is also stored in the animal object
    */
   public static void main(String[] args) {
     Shelter shelter = new Shelter();
-    shelter.addAnimalsToShelterList(new Animal("cheetah"));
-    shelter.addAnimalsToShelterList(new Animal("panda"));
-    shelter.addAnimalsToShelterList(new Animal("chinchilla"));
-    shelter.addAnimalsToShelterList(new Animal("koala"));
-    shelter.addAnimalsToShelterList(new Animal("turtleTeki"));
+    Animal cheetah = new Animal("cheetah");
+    Animal panda = new Animal("panda");
+    Animal chinchilla = new Animal("chinchilla");
+    Animal koala = new Animal("koala");
+    Animal teki = new Animal("turtleTeki");
+    shelter.addAnimalsToShelterList(cheetah);
+    shelter.addAnimalsToShelterList(panda);
+    shelter.addAnimalsToShelterList(chinchilla);
+    shelter.addAnimalsToShelterList(koala);
+    shelter.addAnimalsToShelterList(teki);
+    People lennie = new People("lennie");
 
     System.out.println(shelter.logAnimalsInShelterList());
+    System.out.println(shelter.adoptAnimal(lennie, teki));
+    System.out.println(shelter.logAnimalsInShelterList());
+    System.out.println(shelter.adoptAnimal(lennie, panda));
+    System.out.println(shelter.logAnimalsInShelterList());
+
   }
 }

@@ -5,9 +5,7 @@ public class People {
     this.name = name;
   }
 
-  public void adoptAnimals() {
-//    animal.setAdopted();
-//    return animal.isAdopted("");
-
+  public String getName() {
+    return this.name;
   }
 }

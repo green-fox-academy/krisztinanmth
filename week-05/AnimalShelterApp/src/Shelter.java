@@ -1,15 +1,12 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Shelter {
   List<Animal> animalsInShelter;
-  List<People> adopters;
   List<Animal> adoptedAnimals;
 
   public Shelter() {
     animalsInShelter = new ArrayList<>();
-    adopters = new ArrayList<>();
     adoptedAnimals = new ArrayList<>();
   }
 
@@ -17,20 +14,20 @@ public class Shelter {
     animalsInShelter.add(animal);
   }
 
-  public void addPeopleToAdopters(People person) {
-    adopters.add(person);
-  }
+//  public void removeAnimals(Animal animal) {
+//    animalsInShelter.remove(animal);
+//  }
 
-  public void adopt(People person) {
-    for (int i = 0; i < animalsInShelter.size() ; i++) {
-      animalsInShelter.get(i).setAdopted();
-      animalsInShelter.remove(animalsInShelter.get(i));
-      adoptedAnimals.add(animalsInShelter.get(i));
-    }
+  public String adoptAnimal(People adopter, Animal animal) {
+    animal.setAdopted(true);
+    animal.setAdopter(adopter.getName());
+    animalsInShelter.remove(animal);
+    adoptedAnimals.add(animal);
+    return String.format("\n%s has adopted %s", adopter.getName(), animal.getType());
   }
 
   public String logAnimalsInShelterList() {
-    String log1 = "you have " + animalsInShelter.size() + " animals in the shelter \nthese are: \n";
+    String log1 = "\nyou have " + animalsInShelter.size() + " adoptable animals in the shelter \nthese are: \n";
     String log2 = "";
     for (int i = 0; i < animalsInShelter.size() ; i++) {
       log2 += animalsInShelter.get(i).getType() + ", ";
