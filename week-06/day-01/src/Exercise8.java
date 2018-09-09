@@ -1,6 +1,5 @@
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.Map.Entry;
 
 public class Exercise8 {
 
