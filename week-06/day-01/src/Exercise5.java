@@ -6,10 +6,8 @@ public class Exercise5 {
     /**
      * write a stream expression to find the uppercase characters in a string!
      */
-    String upperCase = "let me DO the BEST of it".chars()
-      .filter(Character::isUpperCase)
-      .mapToObj(c -> Character.toString((char)c))
-      .collect(Collectors.joining());
+    String upperCase = "let me DO the BEST of it".chars().filter(Character::isUpperCase)
+      .mapToObj(c -> Character.toString((char)c)).collect(Collectors.joining());
     System.out.println("upperCases found with stream: ");
     System.out.println(upperCase);
 

@@ -9,7 +9,6 @@ public class Exercise1 {
     //  write a stream expression to get the even numbers from the following array:
     ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14));
     numbers.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
-    System.out.println();
     System.out.println(createListWithEvens(numbers));
   }
 

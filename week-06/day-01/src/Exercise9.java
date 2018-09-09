@@ -19,9 +19,7 @@ public class Exercise9 {
 
     List<Character> chars = Arrays.asList('g', 'i', 't', 'H', 'u', 'b');
     System.out.println(chars);
-    String joinedCharsStr = chars.stream()
-                                 .map(String::valueOf)
-                                 .collect(Collectors.joining());
+    String joinedCharsStr = chars.stream().map(String::valueOf).collect(Collectors.joining());
     System.out.println("turning char array into string with stream expression: ");
     System.out.println(joinedCharsStr);
     System.out.println();

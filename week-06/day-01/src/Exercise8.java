@@ -13,6 +13,7 @@ public class Exercise8 {
       numbers.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting()));
     System.out.println("frequency of numbers found with stream expression: ");
     System.out.println(numbersToCount);
+    System.out.println();
     System.out.println("frequency of numbers found with method: ");
     System.out.println(countFrequencyOfNumbers(numbers));
   }
