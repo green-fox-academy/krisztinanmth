@@ -16,7 +16,6 @@ public class Exercise7 {
     System.out.println(countOccurrence(example, 'e'));
     System.out.println("frequency of 't' with method: ");
     System.out.println(countOccurrence(example, 't'));
-    
   }
 
   private static int countOccurrence(String example, char searchedChar) {
