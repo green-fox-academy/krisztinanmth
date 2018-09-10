@@ -21,7 +21,8 @@ public class Exercise9 {
     System.out.println(chars);
     String joinedCharsStr =
       chars.stream()
-        .map(String::valueOf).collect(Collectors.joining());
+        .map(String::valueOf)
+        .collect(Collectors.joining());
     System.out.println("turning char array into string with stream expression: ");
     System.out.println(joinedCharsStr);
     System.out.println();
