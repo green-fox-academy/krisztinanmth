@@ -20,15 +20,16 @@ public class Exercise6 {
 
     System.out.println();
     System.out.println("cities, which start with A & end with I, found with method");
-//    findCitiesStartingWithA(cities);
+    System.out.println(findCitiesStartingWithA(cities));
   }
 
-//  private static void findCitiesStartingWithA(List cities) {
-//    String citiesCommaSeparated = String.join(", ", cities);
-//    String[] cityArray = citiesCommaSeparated.split(",");
-//    for (int i = 0; i < cityArray.length ; i++) {
-//      if (cityArray[i].charAt(0);
-//
-//    }
-//  }
+  private static List<String> findCitiesStartingWithA(List<String> cities) {
+    List<String> sortedCities = new ArrayList<>();
+    for (int i = 0; i < cities.size() ; i++) {
+      if (cities.get(i).startsWith("A") && cities.get(i).endsWith("I")) {
+        sortedCities.add(cities.get(i));
+      }
+    }
+    return sortedCities;
+  }
 }
