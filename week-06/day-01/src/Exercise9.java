@@ -20,7 +20,7 @@ public class Exercise9 {
 
     String stringFromCharArray = Stream.of(strChars)
       .map(String::valueOf)
-      .collect(Collectors.joining(","));
+      .collect(Collectors.joining());
     System.out.println("\nstring with stream from char array");
     System.out.println(stringFromCharArray);
     System.out.println();
