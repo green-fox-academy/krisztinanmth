@@ -5,8 +5,14 @@ public class Exercise7 {
      * write a stream expression to find the frequency of characters in a given string!
      */
     String example = "peetweet";
-    long count = example.chars().filter(ch -> ch == 'e').count();
-    long count2 = example.chars().filter(ch -> ch == 't').count();
+    long count =
+      example.chars()
+      .filter(ch -> ch == 'e')
+      .count();
+    long count2 =
+      example.chars()
+        .filter(ch -> ch == 't')
+        .count();
     System.out.println("frequency of 'e' with stream: ");
     System.out.println(count);
     System.out.println("frequency of 't' with stream: ");
