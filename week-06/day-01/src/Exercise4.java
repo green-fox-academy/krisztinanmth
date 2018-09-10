@@ -11,7 +11,9 @@ public class Exercise4 {
     ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(3, 9, 2, 8, 6, 5));
 
     List<Integer> listOfSquaresBiggerThan20 =
-      numbers.stream().map(n -> n * n).filter(n -> n > 20).collect(Collectors.toList());
+      numbers.stream()
+        .map(n -> n * n).filter(n -> n > 20)
+        .collect(Collectors.toList());
     System.out.println("list of squared numbers bigger than 20... with stream: ");
     System.out.println(listOfSquaresBiggerThan20);
 

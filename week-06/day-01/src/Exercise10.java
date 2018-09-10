@@ -29,20 +29,27 @@ public class Exercise10 {
     List<Fox> foxes = addFoxes();
 
     List<String> foxesWithGreenColor =
-      foxes.stream().filter(fox -> fox.getColor().equals("green")).map(Fox::getName).collect(Collectors.toList());
+      foxes.stream()
+        .filter(fox -> fox.getColor().equals("green"))
+        .map(Fox::getName).collect(Collectors.toList());
     System.out.println(foxesWithGreenColor);
 
     List<String> foxesWithGreenColorAndPallidaType =
-      foxes.stream().filter(fox -> fox.getColor().equals("green")).filter(fox -> fox.getType().equals("pallida"))
+      foxes.stream()
+        .filter(fox -> fox.getColor().equals("green"))
+        .filter(fox -> fox.getType().equals("pallida"))
         .map(Fox::getName).collect(Collectors.toList());
     System.out.println(foxesWithGreenColorAndPallidaType);
 
     Map<String, List<Fox>> mapOfGreenFoxes =
-      foxes.stream().filter(fox -> fox.getColor().equals("green")).collect(groupingBy(Fox::getColor));
+      foxes.stream()
+        .filter(fox -> fox.getColor().equals("green"))
+        .collect(groupingBy(Fox::getColor));
     mapOfGreenFoxes.forEach((k, v) -> System.out.println(k + " -" + v));
 
     Map<String, List<Fox>> mapOfGreenPallidaFoxes =
-      foxes.stream().filter(fox -> fox.getColor().equals("green") && fox.getType().equals("pallida"))
+      foxes.stream()
+        .filter(fox -> fox.getColor().equals("green") && fox.getType().equals("pallida"))
         .collect(groupingBy(Fox::getType));
     mapOfGreenPallidaFoxes.forEach((type, map) -> System.out.println(type + " -" + map));
   }

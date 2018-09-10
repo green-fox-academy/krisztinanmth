@@ -12,7 +12,9 @@ public class Exercise3 {
     ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14));
     //solution with stream expression
     List<Integer> listOFSquaredPosNumbers =
-      numbers.stream().filter(n -> n > 0).map(n -> n * n).collect(Collectors.toList());
+      numbers.stream()
+        .filter(n -> n > 0).map(n -> n * n)
+        .collect(Collectors.toList());
     System.out.println("squared positives with stream: ");
     System.out.println(listOFSquaredPosNumbers);
 
