@@ -18,6 +18,13 @@ public class Exercise9 {
     System.out.println(String.valueOf(strChars));
     System.out.println();
 
+    String stringFromCharArray = Stream.of(strChars)
+      .map(String::valueOf)
+      .collect(Collectors.joining(","));
+    System.out.println("\nstring with stream from char array");
+    System.out.println(stringFromCharArray);
+    System.out.println();
+
     List<Character> chars = Arrays.asList('g', 'i', 't', 'H', 'u', 'b');
     System.out.println(chars);
     String joinedCharsStr =
