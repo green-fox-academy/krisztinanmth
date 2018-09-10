@@ -33,8 +33,9 @@ public class MaterialPractise {
 
   private static String ceasarEncode(String text, int offset) {
     return text.chars()
-      .map(c -> c + offset)
-      .mapToObj(c -> (char) c)
+      .map(c -> ((c + offset - 97) % 24) + 97)
+      .mapToObj(c -> Character.toString((char) c))
+      .collect(Collectors.joining());
   }
   //predicates are those lambda expressions which return with a boolean
 
