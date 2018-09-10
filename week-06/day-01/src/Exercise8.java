@@ -12,7 +12,7 @@ public class Exercise8 {
     Map<Integer, Long> numbersToCount =
       numbers.stream()
         .collect(Collectors.groupingBy(n -> n, Collectors.counting()));
-    System.out.println("frequency of numbers found with stream expression: ");
+    System.out.println("\nfrequency of numbers found with stream expression: ");
     System.out.println(numbersToCount);
     System.out.println();
     System.out.println("frequency of numbers found with method: ");
