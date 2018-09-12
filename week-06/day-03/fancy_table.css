@@ -4,6 +4,7 @@ body {
 table {
     background-color: rgb(164, 220, 247);
     border-collapse: collapse;
+    border-style: hidden;
     table-layout: fixed;
     margin-top: 50px;
     margin-left: auto;
