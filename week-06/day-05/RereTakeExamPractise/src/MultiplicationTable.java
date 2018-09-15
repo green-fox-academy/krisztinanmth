@@ -26,9 +26,9 @@ public class MultiplicationTable {
   }
 
   public static void multiplyInputNumber(int inputNumber) {
-    int multipliedNumber = 0;
+    int multipliedNumber;
     for (int i = 1; i <= 10 ; i++) {
-      multipliedNumber += i;
+      multipliedNumber = i * inputNumber;
       System.out.println(String.format("%d * %d = %d",i, inputNumber, multipliedNumber));
     }
   }
