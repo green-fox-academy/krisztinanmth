@@ -16,12 +16,13 @@ public class FishTank {
      *      the aquarium has a status method it should print the status for each fish.
      */
 
-    Aquarium aquarium = new Aquarium(aquarium);
+    Aquarium aquarium = new Aquarium();
+
 
     aquarium.add(new Koi("Nami", 9, "pink"));
     aquarium.add(new Tang("Dory", 8, "blue", true));
     aquarium.add(new Tang("Bubbles", 10, "yellow", false));
-    aquarium.add(new Clownfish("Nemo", 5, "orange", "white"));
+    aquarium.add(new Clownfish("Nemo", 5, "orange", true));
 
     System.out.println(aquarium.status());
 
@@ -31,7 +32,7 @@ public class FishTank {
     // Nemo, weight: 5, color: orange, stripe color: white
 
     aquarium.feed();
-    aquarium.removeOversizedFishes();
+    aquarium.removeOversizeFish();
 
     System.out.println(aquarium.status());
 
