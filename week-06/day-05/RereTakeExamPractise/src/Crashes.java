@@ -33,100 +33,27 @@ public class Crashes {
     return String.format("The amount of crashes at good weather conditions: {%d}\n", countAmountOfGoodWeatherCrashes());
   }
 
-  public static int countAmountOfBadWeatherCrashes() {
-    return countRainCrashes() + countFreezingRainCrashes() + countSnowCrashes() + countFogCrashes() + countSevereCrosswindsCrashes();
-  }
 
   public static int countAmountOfGoodWeatherCrashes() {
-    return countClearCrashes() + countCloudyCrashes();
-  }
-
-  public static int countSevereCrosswindsCrashes() {
     List<String> lines = readFile();
     String[] splitLines;
     int sum = 0;
     for (String line : lines) {
       splitLines = line.split(";");
-      if (splitLines[5].equals("SEVERE CROSSWINDS")) {
+      if (splitLines[5].equals("CLOUDY") || splitLines[5].equals("CLEAR")) {
         sum ++;
       }
     }
     return sum;
   }
 
-  public static int countFogCrashes() {
+  public static int countAmountOfBadWeatherCrashes() {
     List<String> lines = readFile();
     String[] splitLines;
     int sum = 0;
     for (String line : lines) {
       splitLines = line.split(";");
-      if (splitLines[5].equals("FOG")) {
-        sum ++;
-      }
-    }
-    return sum;
-  }
-
-  public static int countSnowCrashes() {
-    List<String> lines = readFile();
-    String[] splitLines;
-    int sum = 0;
-    for (String line : lines) {
-      splitLines = line.split(";");
-      if (splitLines[5].equals("SNOW")) {
-        sum ++;
-      }
-    }
-    return sum;
-  }
-
-  public static int countFreezingRainCrashes() {
-    List<String> lines = readFile();
-    String[] splitLines;
-    int sum = 0;
-    for (String line : lines) {
-      splitLines = line.split(";");
-      if (splitLines[5].equals("FREEZING RAIN")) {
-        sum ++;
-      }
-    }
-    return sum;
-  }
-
-  public static int countRainCrashes() {
-    List<String> lines = readFile();
-    String[] splitLines;
-    int sum = 0;
-    for (String line : lines) {
-      splitLines = line.split(";");
-      if (splitLines[5].equals("RAIN")) {
-        sum ++;
-      }
-    }
-    return sum;
-  }
-
-
-  public static int countCloudyCrashes() {
-    List<String> lines = readFile();
-    String[] splitLines;
-    int sum = 0;
-    for (String line : lines) {
-      splitLines = line.split(";");
-      if (splitLines[5].equals("CLOUDY")) {
-        sum ++;
-      }
-    }
-    return sum;
-  }
-
-  public static int countClearCrashes() {
-    List<String> lines = readFile();
-    String[] splitLines;
-    int sum = 0;
-    for (String line : lines) {
-      splitLines = line.split(";");
-      if (splitLines[5].equals("CLEAR")) {
+      if (splitLines[5].equals("RAIN") || splitLines[5].equals("FREEZING RAIN") || splitLines[5].equals("SNOW") || splitLines[5].equals("FOG") || splitLines[5].equals("SEVERE CROSSWINDS")) {
         sum ++;
       }
     }
