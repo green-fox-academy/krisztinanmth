@@ -1,14 +1,12 @@
 
 .idea
-out
+/out/
 *.iml
+*.iws
+*.ipr
 *.xml
 .DS_Store
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
 
-../../../week-02/day-03/src/com/
-../../../week-02/day-04/src/com/
-../../../week-02/day-05/src/com/
-../../../week-02/weekend-02/src/com/
-../../day-02/src/com/
-com/
-../../videos/src/com/
