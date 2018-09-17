@@ -1,9 +1,15 @@
 package com.greenfoxacademy.springstart.models;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Greetings {
 
   private long id;
   private String content;
+
+  public Greetings() {
+  }
+
 
   public Greetings(long id, String content) {
     this.id = id;
