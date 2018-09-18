@@ -10,8 +10,8 @@
         }
         table {
             border: 2px solid black;
-            width: 500px;
-            background-color: cadetblue;
+            width: 700px;
+            background-color: seagreen;
             margin: auto;
         }
         p, h1, h2 {
@@ -20,7 +20,7 @@
         td {
             border: 1px solid black;
             padding: 20px;
-            background-color: aliceblue;
+            background-color: lightgrey;
         }
         th {
             height: 45px;
@@ -42,16 +42,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="bankAccount : ${bankList}" th:object="${bankAccount}" th:style="${bankAccount.isKing()} ? 'color: gold;' : 'color:black;'">
+        <tr th:each="bankAccount : ${bankList}" th:object="${bankAccount}" th:style="${bankAccount.isKing()} ? 'color:yellow;' : 'color:black;'">
             <td th:text="*{name}"></td>
             <td th:text="*{#numbers.formatDecimal(balance, 0, 'COMMA', 2, 'POINT')}"></td>
             <td th:text="*{animalType}"></td>
             <td th:text="${bankAccountStat.index}"></td>
-            <td th:text="*{isKing()}"></td>
+            <td th:text="*{isKing()} ? 'king' : 'bauer'"></td>
         </tr>
         </tbody>
     </table>
-    <p> i know about border-collapse but i wouldn't like to use it, ok? problem?</p>
+    <p> i know about border-collapse but i wouldn't like to use it, ok? :) </p>
 </div>
 </body>
 </html>
