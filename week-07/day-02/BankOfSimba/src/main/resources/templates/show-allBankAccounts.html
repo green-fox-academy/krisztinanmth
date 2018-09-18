@@ -4,9 +4,32 @@
     <title>bank of simba</title>
     <!--<link rel="stylesheet" th:href="@{/style.css}" />-->
     <meta charset="utf-8" />
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+        table {
+            border: 2px solid black;
+            width: 500px;
+            background-color: cadetblue;
+            margin: auto;
+        }
+        p, h1, h2 {
+            text-align: center;
+        }
+        td {
+            border: 1px solid black;
+            padding: 20px;
+            background-color: aliceblue;
+        }
+        th {
+            height: 45px;
+        }
+    </style>
 </head>
 <body>
 <div>
+    <h1>bank of SIMBA</h1>
     <h2>bank accounts in the bank: </h2>
     <table>
         <thead>
@@ -15,17 +38,20 @@
             <th>balance</th>
             <th>animal type</th>
             <th>index</th>
+            <th>king</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="bankAccount : ${bankList}" th:object="${bankAccount}">
+        <tr th:each="bankAccount : ${bankList}" th:object="${bankAccount}" th:style="${bankAccount.isKing()} ? 'color: gold;' : 'color:black;'">
             <td th:text="*{name}"></td>
             <td th:text="*{#numbers.formatDecimal(balance, 0, 'COMMA', 2, 'POINT')}"></td>
             <td th:text="*{animalType}"></td>
             <td th:text="${bankAccountStat.index}"></td>
+            <td th:text="*{isKing()}"></td>
         </tr>
         </tbody>
     </table>
+    <p> i know about border-collapse but i wouldn't like to use it, ok? problem?</p>
 </div>
 </body>
 </html>
