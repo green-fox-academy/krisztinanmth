@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>bank of simba</title>
+    <!--<link rel="stylesheet" th:href="@{/style.css}" />-->
+    <meta charset="utf-8" />
+</head>
+<body>
+<div>
+    <h2>bank accounts in the bank: </h2>
+    <table>
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>balance</th>
+            <th>animal type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bankAccount : ${bankList}" th:object="${bankAccount}">
+            <td th:text="*{name}"></td>
+            <td th:text="*{#numbers.formatDecimal(balance, 0, 'COMMA', 2, 'POINT')}"></td>
+            <td th:text="*{animalType}"></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
