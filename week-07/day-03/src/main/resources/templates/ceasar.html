@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8 /">
-    <title>Title</title>
+    <title>ceasar</title>
 </head>
 <body>
-
+<h3 th:text="'word to encode is: ' + ${word}" th:style="'color:grey; text-align: center'"></h3>
+<h3 th:text="'encoded word is: ' + ${encodedWord}" th:style="'color: orange; text-align:center;'"></h3>
 </body>
 </html>

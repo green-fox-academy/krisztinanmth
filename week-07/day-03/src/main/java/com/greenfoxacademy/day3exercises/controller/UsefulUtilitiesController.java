@@ -54,4 +54,11 @@ public class UsefulUtilitiesController {
     model.addAttribute("encodedWord", utilityServices.caesar(text, number));
     return "ceasar";
   }
+
+  @GetMapping("/useful/{text}/{number}")
+  public String decode(@PathVariable(value="text") String text, @PathVariable(value="number") int number, Model model) {
+    model.addAttribute("wordToDecode", text);
+    model.addAttribute("decodedWord", utilityServices.caesar(text, -number));
+    return "ceasarDecoded";
+  }
 }
