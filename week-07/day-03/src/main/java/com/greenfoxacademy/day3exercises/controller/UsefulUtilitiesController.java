@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class UsefulUtilities {
+public class UsefulUtilitiesController {
 
   UtilityService utilityServices;
 
   @Autowired
-  public UsefulUtilities(UtilityService utilityServices) {
+  public UsefulUtilitiesController(UtilityService utilityServices) {
     this.utilityServices = utilityServices;
   }
 
@@ -30,8 +30,8 @@ public class UsefulUtilities {
     return "random";
   }
 
-  @GetMapping("/useful/{random}")
-  public String showCertainColor(@PathVariable (value="random") String color, Model model) {
+  @GetMapping("/useful/{specColor}")
+  public String showSpecificColor(@PathVariable (value="specColor") String color, Model model) {
     model.addAttribute("random", color);
     return "random";
   }
@@ -46,5 +46,11 @@ public class UsefulUtilities {
     }
     model.addAttribute("isValid", utilityServices.validateEmail(email));
     return "validEmail";
+  }
+
+  @GetMapping("/useful/{text}/{number}")
+  public String encode(@PathVariable(value="text") String text, @PathVariable(value="number") int number, Model model) {
+    model.addAttribute(utilityServices.caesar(text, number));
+    return "";
   }
 }
