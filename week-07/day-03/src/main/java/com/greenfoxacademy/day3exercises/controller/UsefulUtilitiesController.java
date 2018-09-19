@@ -50,7 +50,8 @@ public class UsefulUtilitiesController {
 
   @GetMapping("/useful/{text}/{number}")
   public String encode(@PathVariable(value="text") String text, @PathVariable(value="number") int number, Model model) {
-    model.addAttribute(utilityServices.caesar(text, number));
-    return "";
+    model.addAttribute("word", text);
+    model.addAttribute("encodedWord", utilityServices.caesar(text, number));
+    return "ceasar";
   }
 }
