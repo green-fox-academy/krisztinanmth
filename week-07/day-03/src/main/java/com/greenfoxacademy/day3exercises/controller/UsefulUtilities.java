@@ -38,13 +38,13 @@ public class UsefulUtilities {
 
   @GetMapping("/useful/email")
   public String getEmail(@RequestParam(value="email") String email, Model model) {
-    model.addAttribute()
-    return "validateEmail";
+    if (utilityServices.validateEmail(email)) {
+      model.addAttribute("text", email + " is a valid email address");
+    }
+    else {
+      model.addAttribute("text", email + "is not a valid email address");
+    }
+    model.addAttribute("isValid", utilityServices.validateEmail(email));
+    return "validEmail";
   }
 }
-//  public String printValid(String email) {
-//    if (validateEmail(email)) {
-//      return email + "is a valid email address";
-//    }
-//    return email + "is not a valid email address";
-//  }
