@@ -10,13 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class FoxClubController {
 
-  FoxService foxServices;
-
-  @Autowired
-  public FoxClubController(FoxService foxServices) {
-    this.foxServices = foxServices;
-  }
-
   @GetMapping("/")
   public String getIndex(@RequestParam(value="name") String name, Model model) {
     model.addAttribute("name", name);

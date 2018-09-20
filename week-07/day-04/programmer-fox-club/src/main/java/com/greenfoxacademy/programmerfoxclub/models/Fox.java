@@ -8,40 +8,49 @@ public class Fox {
   private String name;
   private String food;
   private String drink;
-  List<String> tricks;
-
-  public Fox(String name) {
-    this.name = name;
-  }
-
-  public Fox(String name, String food, String drink, List<String> tricks) {
-    this.name = name;
-    this.food = food;
-    this.drink = drink;
-    tricks = new ArrayList<>();
-  }
+  private List<String> tricks;
 
   public Fox() {
   }
 
+  public Fox(String name) {
+    this.name = name;
+    food = "pizza";
+    drink = "lemonade";
+    tricks = new ArrayList<>();
+  }
+
+
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getFood() {
     return food;
   }
 
+  public void setFood(String food) {
+    this.food = food;
+  }
+
   public String getDrink() {
     return drink;
   }
 
-  public void setTricks(List<String> tricks) {
-    this.tricks = tricks;
+  public void setDrink(String drink) {
+    this.drink = drink;
   }
 
   public List<String> getTricks() {
     return tricks;
+  }
+
+  public void setTricks(List<String> tricks) {
+    this.tricks = tricks;
   }
 }
 
