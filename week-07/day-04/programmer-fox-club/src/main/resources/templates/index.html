@@ -11,8 +11,8 @@
         </li>
     </ul>
     <img th:style="'display: center;'" src="greenfox.png">
-    <p>this is mr. fox. currently living on pizza and lemonade. he knows 2 tricks</p>
-    <h1>tricks mr. fox knows: </h1>
+    <p th:text="'this is ' + ${name} + ', currently living on pizza and lemonade. she knows two tricks.'"></p>
+    <h1 th:text="'tricks ' + ${name} + ' knows: '"></h1>
     <ul>
         <li>write HTML</li>
         <li>code in Java</li>
