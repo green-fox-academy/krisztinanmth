@@ -1,7 +1,5 @@
 package com.greenfoxacademy.programmerfoxclub.controllers;
 
-import com.greenfoxacademy.programmerfoxclub.services.FoxService;
-import com.greenfoxacademy.programmerfoxclub.services.FoxServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class FoxClubController {
+public class LoginController {
 
   @GetMapping("/")
   public String getIndex(@RequestParam(value="name", required = false) String name, Model model) {
