@@ -1,14 +1,18 @@
 package com.greenfoxacademy.programmerfoxclub.models;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class Fox {
 
   private String name;
   private String food;
   private String drink;
   private List<String> tricks;
+
 
   public Fox() {
   }
