@@ -48,14 +48,14 @@ public class UsefulUtilitiesController {
     return "validEmail";
   }
 
-  @GetMapping("/useful/{text}/{number}")
+  @GetMapping("/useful/encode/{text}/{number}")
   public String encode(@PathVariable(value="text") String text, @PathVariable(value="number") int number, Model model) {
     model.addAttribute("word", text);
     model.addAttribute("encodedWord", utilityServices.caesar(text, number));
     return "ceasar";
   }
 
-  @GetMapping("/useful/{text}/{number}")
+  @GetMapping("/useful/decode/{text}/{number}")
   public String decode(@PathVariable(value="text") String text, @PathVariable(value="number") int number, Model model) {
     model.addAttribute("wordToDecode", text);
     model.addAttribute("decodedWord", utilityServices.caesar(text, -number));
