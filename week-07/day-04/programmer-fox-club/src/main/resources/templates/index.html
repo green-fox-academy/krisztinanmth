@@ -10,12 +10,15 @@
         <a href="">information</a>
         </li>
     </ul>
-    <img th:style="'display: center;'" src="greenfox.png">
-    <p th:text="'this is ' + ${name} + ', currently living on pizza and lemonade. she knows two tricks.'"></p>
+    <img th:style="'display:center;'" src="greenfox.png">
+    <div>
+    <p th:text="'this is ' + ${fox.name} + '. currently living on ' + ${fox.food} + ' and ' +${fox.drink}"></p>
+    </div>
+    <div>
     <h1 th:text="'tricks ' + ${name} + ' knows: '"></h1>
     <ul>
-        <li>write HTML</li>
-        <li>code in Java</li>
+        <li th:each="trick : ${fox.tricks}" th:text="${trick}"></li>
     </ul>
+    </div>
 </body>
 </html>
