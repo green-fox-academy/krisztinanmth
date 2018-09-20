@@ -1,71 +1,52 @@
 package com.greenfoxacademy.programmerfoxclub.service;
 
 import com.greenfoxacademy.programmerfoxclub.models.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class FoxServiceImpl implements FoxService {
 
-  FoxList allFoxes;
-  DrinkList drinkList;
-  FoodList foodList;
-  TrickList trickList;
+  private List<Fox> allFoxes;
 
-  @Autowired
-  public FoxServiceImpl(FoxList allFoxes) {
-    this.allFoxes = allFoxes;
-    this.drinkList = drinkList;
-    this.foodList = foodList;
-    this.trickList = trickList;
+  public FoxServiceImpl() {
+    allFoxes = new ArrayList<>();
   }
 
   @Override
   public void addNewFoxToList(String name) {
-    if (allFoxes.getFoxFromList(name) == null) {
-      allFoxes.getAllFoxes().add(new Fox(name));
+    Fox fox = new Fox();
+    fox.setName(name);
+    allFoxes.add(fox);
+  }
+
+  @Override
+  public Fox GetFoxFromList(String name) {
+    int indexOfFox = 0;
+    for (int i = 0; i < allFoxes.size() ; i++) {
+      if (name.equals(allFoxes.get(i).getName())) {
+        indexOfFox = i;
+      }
     }
+    return allFoxes.get(indexOfFox);
   }
 
   @Override
-  public Fox getFox(String name) {
-    return allFoxes.getFoxFromList(name);
+  public boolean isFoxInList(String name) {
+    for (Fox fox : allFoxes) {
+      if (name.equals(fox.getName())) {
+        return true;
+      }
+    }
+    return false;
   }
 
-  @Override
-  public List<String> getDrinkList() {
-    return drinkList.getDrinkList();
+  public List<Fox> getAllFoxes() {
+    return allFoxes;
   }
 
-  @Override
-  public List<String> getFoodList() {
-    return foodList.getFoodList();
-  }
-
-  @Override
-  public List<String> getTrickList() {
-    return trickList.getTrickList();
-  }
-
-  @Override
-  public void addNewFood(String food, String drink, String name) {
-
-  }
-
-  @Override
-  public void setNewDrink(String drink, String name) {
-    allFoxes.getFoxFromList(name).setDrink(drink);
-  }
-
-  @Override
-  public void setNewFood(String food, String name) {
-    allFoxes.getFoxFromList(name).setFood(food);
-  }
-
-  @Override
-  public void addNewTrick(String trick, String name) {
-
+  public void setAllFoxes(List<Fox> allFoxes) {
+    this.allFoxes = allFoxes;
   }
 }
