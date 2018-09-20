@@ -1,4 +1,4 @@
-package com.greenfoxacademy.programmerfoxclub.services;
+package com.greenfoxacademy.programmerfoxclub.service;
 
 import com.greenfoxacademy.programmerfoxclub.models.Fox;
 import com.greenfoxacademy.programmerfoxclub.models.FoxList;
