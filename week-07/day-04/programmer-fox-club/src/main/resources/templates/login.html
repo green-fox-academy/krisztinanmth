@@ -3,6 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <style>
+        body {
+            font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: 40px;
+        }
+
+        p {
+            text-decoration: cornsilk;
+            font-size: large;
+            font-size: 20px;
+        }
+
+        form {
+            height: 900px;
+            margin-top: 80px;
+        }
+
+        img {
+            display: block;
+            width: 300px;
+            margin: auto;
+            padding: 50px;
+        }
+
+        input {
+            width: 150px;
+            height: 30px;
+            border-radius: 4px;
+            display: inline;
+            margin: auto;
+        }
+
+    </style>
 </head>
 <body th:style="'text-align:center; background-color:green;'">
     <h1>welcome to programmer fox club</h1>
@@ -12,6 +49,7 @@
         name:
         <input type="text" placeholder="name of pet" maxlength="30" name="name">
         <input type="submit" value="enter">
+        <img src="greenfox.png">
     </form>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=en xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>programmer-fox-club</title>
         <style>
             body {
@@ -20,7 +20,7 @@
             }
 
             img {
-                width: 300px;
+                height: 300px;
             }
 
             #header {
@@ -50,6 +50,7 @@
                 background-color: black;
                 color: white;
                 border-radius: 5px;
+                display: inline-block;
             }
         </style>
     </head>
@@ -57,7 +58,7 @@
         <div id="header">
             <h1 th:text="'this is your pet, ' + *{name}"></h1>
         </div>
-        <img th:style="'display:center;'" src="greenfox.png">
+        <img th:style="'display:center;'" src="200w2.gif">
         <div>
             <h2 th:text="'this is ' + *{name} + '. currently living on ' + *{food} + ' and ' + *{drink}"></h2>
         </div>
@@ -67,16 +68,15 @@
                 <li th:text="'no tricks yet...go learn some :)'"></li>
             </ul>
             <ul th:unless="${fox.getTricks().isEmpty()}"  th:each="trick : ${fox.getTricks()}">
-                <li th:text="${trick.getName()}"></li>
+                <li th:text="${trick.nameOfTrick}"></li>
             </ul>
         </div>
         <div id="footer">
-        <a th:href="'/eat?name=' + ${fox.getName()}">
-            <button class="button">eat</button>
-        </a>
-        <a th:href="'/drink?name=' + ${fox.getName()}">
-           <button class="button">drink</button>
-        </a>
+            <ul>
+                <li>
+                    <a th:href="@{'nutritionstore?name=' + ${fox.name}}">nutrition store</a>
+                </li>
+            </ul>
         </div>
     </body>
 </html>

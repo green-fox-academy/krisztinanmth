@@ -19,6 +19,13 @@ public class Fox {
     tricks = new ArrayList<>();
   }
 
+  public Fox(String name) {
+    this.name = name;
+    food = "pizza";
+    drink = "lemonade";
+    tricks = new ArrayList<>();
+  }
+
   public String getName() {
     return name;
   }
