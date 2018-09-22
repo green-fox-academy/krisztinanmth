@@ -32,7 +32,7 @@
             }
 
             #footer {
-                height: 110px;
+                height: 150px;
                 width: 100%;
                 background-color: green;
             }
@@ -42,15 +42,9 @@
                 margin-top: 20px;
             }
 
-            .button {
-                margin: 40px;
-                width: 75px;
-                height: 45px;
-                font-size: 12px;
-                background-color: black;
-                color: white;
-                border-radius: 5px;
-                display: inline-block;
+            #footer a {
+                color: black;
+                margin-top: 30px;
             }
         </style>
     </head>
@@ -75,6 +69,9 @@
             <ul>
                 <li>
                     <a th:href="@{'nutritionstore?name=' + ${fox.name}}">nutrition store</a>
+                </li>
+                <li>
+                    <a th:href="@{'trickcenter?name=' + ${fox.name}}">tricks center</a>
                 </li>
             </ul>
         </div>

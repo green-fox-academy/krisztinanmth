@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <style>
+            body {
+                text-align: center;
+                background-color: green;
+            }
+
+            form {
+                width: 500px;
+                height: 40px;
+                border-radius: 5px;
+                display: inline;
+                margin: 60px auto;
+                font-size: 15px;
+            }
+
+            a {
+                color: black;
+                font-size: 20px;
+                padding: 70px;
+            }
+
+
+            img {
+                width: 500px;
+                margin: auto;
+                display: block;
+                padding: 70px;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <a th:href="@{'trickcenter?name=' + ${fox.name}}">trick center</a>
+    </div>
+    <form th:action="@{'/trickcenter'}" method="post">
+        Tricks
+        <input type="hidden" name="name" th:value="${fox.name}">
+        <select name="trick">
+            <option value="flying">flying</option>
+            <option value="write HTML">write HTML</option>
+            <option value="jumping">jumping</option>
+            <option value="reading">reading</option>
+            <option value="running">running</option>
+        </select>
+        <input type="submit" value="learn">
+        <img src="trycky.gif">
+    </form>
+    </body>
 </html>

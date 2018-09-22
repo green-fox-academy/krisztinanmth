@@ -57,6 +57,10 @@ public class Fox {
   public void setTricks(List<Trick> tricks) {
     this.tricks = tricks;
   }
+
+  public void addOneTrickToList(Trick trick) {
+    tricks.add(trick);
+  }
 }
 
 

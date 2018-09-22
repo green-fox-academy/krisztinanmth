@@ -1,18 +1,16 @@
 package com.greenfoxacademy.programmerfoxclub.controllers;
 
+import com.greenfoxacademy.programmerfoxclub.models.Fox;
+import com.greenfoxacademy.programmerfoxclub.models.Trick;
 import com.greenfoxacademy.programmerfoxclub.service.FoxServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-
-// SZEDD SZET CONTROLLERT, AHANY HTML PAGE, ANNYI CONTROLLER LEGYEN
-
 public class AppController {
 
   private FoxServiceImpl foxService;
@@ -70,6 +68,27 @@ public class AppController {
     foxService.GetFoxFromList(name).setDrink(drink);
     foxService.GetFoxFromList(name).setFood(food);
     return "redirect:/?name=" + name;
+  }
 
+  @GetMapping("/trickcenter")
+  public String showTrickCenterPage(@RequestParam(value = "name", required = false) String name, Model model) {
+    if (name == null || name.equals("")) {
+      return "redirect:/login";
+    }
+    else {
+      if (foxService.isFoxInList(name)) {
+        model.addAttribute("fox", foxService.GetFoxFromList(name));
+        return "trickcenter";
+      }
+      return "redirect:/login";
+    }
+  }
+
+  @PostMapping("/trickcenter")
+  public String postTrickToFox(@RequestParam(value="name") String name, @RequestParam(value ="trick") String trick) {
+    Fox fox = foxService.GetFoxFromList(name);
+    Trick trick1 = new Trick(trick);
+    fox.addOneTrickToList(trick1);
+    return "redirect:/?name=" + name;
   }
 }

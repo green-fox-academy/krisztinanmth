@@ -3,8 +3,36 @@
     <head>
         <meta charset="UTF-8" />
         <title>Title</title>
+        <style>
+            body {
+                background-color: green;
+                text-align: center;
+            }
+
+            form {
+                width: 500px;
+                height: 40px;
+                border-radius: 5px;
+                display: inline;
+                margin: 60px auto;
+                font-size: 15px;
+            }
+
+            a {
+                color: black;
+                font-size: 20px;
+                padding: 70px;
+            }
+
+            img {
+                width: 500px;
+                margin: auto;
+                display: block;
+                padding: 70px;
+            }
+        </style>
     </head>
-    <body th:style="'text-align:center;'">
+    <body>
         <div class="header">
             <a th:href="@{'nutritionstore?name=' + ${fox.name}}">nutrition store</a>
         </div>
@@ -27,6 +55,7 @@
                 <option value="red bull">red bull</option>
             </select>
             <input type="submit" value="CHANGE">
+            <img src="cutedrinkfox.gif">
         </form>
     </body>
 </html>
