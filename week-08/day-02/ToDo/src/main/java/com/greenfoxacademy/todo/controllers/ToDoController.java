@@ -7,11 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 @RequestMapping("/todo")
 public class ToDoController {
 
-  ToDoRepository toDoRepository;
+  private ToDoRepository toDoRepository;
 
   @Autowired
   public ToDoController(ToDoRepository toDoRepository) {
@@ -21,6 +22,7 @@ public class ToDoController {
 //  @ResponseBody - this was just necessary as we did not return an HTML file but a JSON file
   @GetMapping(value = {"/", "/list"})
   public String list(Model model) {
+    model.addAttribute("todolist", toDoRepository.findAll());
     return "todolist";
   }
 }
