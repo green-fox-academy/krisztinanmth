@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8 /">
+    <meta charset="UTF-8" />
     <title>toDos</title>
     <style>
         body {
             background-color: azure;
         }
 
+        p {
+            text-align: center;
+        }
+
+        a {
+            width: 100px;
+            color: black;
+            font-size: 17px;
+        }
+
         table {
             width: 500px;
-            margin: auto;
+            margin: 30px auto;
         }
 
         h1 {
@@ -32,23 +42,25 @@
 </head>
 <body>
 <h1>toDos for today</h1>
+<p>
+    <a href="/todo/add" class="link">add new todo</a>
+</p>
 <table>
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>action</th>
-            <th>done</th>
-            <th>urgent</th>
-        </tr>
+    <tr>
+        <th>ID</th>
+        <th>action</th>
+        <th>done</th>
+        <th>urgent</th>
+    </tr>
     </thead>
     <tbody th:each="todo : ${todolist}">
-        <tr>
-            <td th:text="${todo.id}"></td>
-            <td th:text="${todo.title}"></td>
-            <td th:text="${todo.done}"></td>
-            <td th:text="${todo.urgent}"></td>
-        </tr>
-
+    <tr>
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.done}"></td>
+        <td th:text="${todo.urgent}"></td>
+    </tr>
     </tbody>
 </table>
 </body>
