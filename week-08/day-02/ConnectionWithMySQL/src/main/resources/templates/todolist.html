@@ -2,12 +2,54 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8 /">
-    <title>Title</title>
+    <title>toDos</title>
+    <style>
+        body {
+            background-color: azure;
+        }
+
+        table {
+            width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkorange;
+        }
+
+        th {
+            font-size: 17px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+        }
+    </style>
 </head>
 <body>
-<h2>toDos for today</h2>
-<ul th:each="todo : ${todolist}">
-    <li th:text="${todo.title}"></li> <!-- itt kell a title a todo utan mert ha objectet adok at, akkor a memoriacimet irja ki -->
-</ul>
+<h1>toDos for today</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>action</th>
+            <th>done</th>
+            <th>urgent</th>
+        </tr>
+    </thead>
+    <tbody th:each="todo : ${todolist}">
+        <tr>
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.title}"></td>
+            <td th:text="${todo.done}"></td>
+            <td th:text="${todo.urgent}"></td>
+        </tr>
+
+    </tbody>
+</table>
 </body>
 </html>

@@ -21,8 +21,14 @@ public class ToDo {
 
   public ToDo(String title) {
     this.title = title;
-    urgent = false;
-    done = false;
+    this.done = false;
+    this.urgent =false;
+  }
+
+  public ToDo(String title, boolean done, boolean urgent) {
+    this.title = title;
+    this.done = done;
+    this.urgent = urgent;
   }
 
   public Long getId() {

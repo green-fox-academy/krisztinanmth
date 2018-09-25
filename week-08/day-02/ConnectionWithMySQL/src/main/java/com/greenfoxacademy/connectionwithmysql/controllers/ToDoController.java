@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -21,8 +22,13 @@ public class ToDoController {
 
   //  @ResponseBody - this was just necessary as we did not return an HTML file but a JSON file
   @GetMapping(value = {"/", "/list"})
-  public String list(Model model) {
-    model.addAttribute("todolist", toDoRepository.findAll());
+  public String list(@RequestParam(value = "isActive", required = false) Boolean done, Model model) {
+    if (done == null) {
+      model.addAttribute("todolist", toDoRepository.findAll());
+    }
+    else {
+      model.addAttribute("todolist", toDoRepository.findByDone(done));
+    }
     return "todolist";
   }
 }
