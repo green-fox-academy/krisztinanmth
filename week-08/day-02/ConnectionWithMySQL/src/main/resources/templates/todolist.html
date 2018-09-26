@@ -66,6 +66,9 @@
         <form th:action="@{'/todo/' + ${todo.id} + '/delete'}" method="post">
             <td><button type="submit" class="btn btn-warning">delete</button></td>
         </form>
+        <form action="#" th:action="@{'/todo/' + ${todo.id} + '/edit'}" method="get">
+            <td><input type="submit" class="btn btn-info" value="edit"/></td>
+        </form>
     </tr>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </tbody>
