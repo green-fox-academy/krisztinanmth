@@ -23,10 +23,10 @@ public class ConnectionWithMySQLApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    toDoRepository.save(new ToDo("learn ORM", false, true ));
-    toDoRepository.save(new ToDo("watch videos for tomorrow", false, true));
-    toDoRepository.save(new ToDo("practise for exam"));
-    toDoRepository.save(new ToDo("feed the cat", true, false));
-    toDoRepository.save(new ToDo("have some fun"));
+//    toDoRepository.save(new ToDo("learn ORM", false, true ));
+//    toDoRepository.save(new ToDo("watch videos for tomorrow", false, true));
+//    toDoRepository.save(new ToDo("practise for exam"));
+//    toDoRepository.save(new ToDo("feed the cat", true, false));
+//    toDoRepository.save(new ToDo("have some fun"));
   }
 }
