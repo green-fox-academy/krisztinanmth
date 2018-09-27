@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+    <style>
+
+        body {
+            background-color: gainsboro;
+        }
+
+        h2 {
+            font-size: 35px;
+            color: darkorange;
+            text-align: center;
+        }
+
+        form {
+            width: 500px;
+            margin-left: 520px;
+        }
+
+        input {
+            margin: 20px;
+        }
+
+        label {
+            font-size: 16px;
+        }
+    </style>
 </head>
-<body>
+<body class="container">
     <h2>edit todo</h2>
     <form action="#" th:action="@{'/todo/' + ${todo.id} + '/edit'}" method="post" th:object="${todo}">
         <label for="todoDescription">description</label>

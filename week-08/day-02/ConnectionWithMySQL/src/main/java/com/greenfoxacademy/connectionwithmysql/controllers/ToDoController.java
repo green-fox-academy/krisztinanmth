@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Controller
 @RequestMapping("/todo")
@@ -58,5 +61,21 @@ public class ToDoController {
   public String postToDoUpdates(@ModelAttribute(value = "todo") ToDo todo) {
     toDoRepository.save(todo);
     return "redirect:/todo/";
+  }
+
+  @GetMapping("/search")
+  public String showSearchedToDos(@ModelAttribute(value = "search") String word, Model model) {
+    if (word == null) {
+      model.addAttribute("todolist", toDoRepository.findAll());
+    } else {
+      List<ToDo> searchedToDos = new ArrayList<>();
+      for (int i = 0; i < toDoRepository.count() ; i++) {
+        if(toDoRepository.findAll().get(i).getTitle().toLowerCase().contains(word.toLowerCase())) {
+          searchedToDos.add(toDoRepository.findAll().get(i));
+        }
+      }
+      model.addAttribute("todolist", searchedToDos);
+    }
+    return "todolist";
   }
 }

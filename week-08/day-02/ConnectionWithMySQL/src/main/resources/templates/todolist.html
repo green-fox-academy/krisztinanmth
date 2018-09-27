@@ -6,21 +6,22 @@
     <title>toDos</title>
     <style>
         body {
-            background-color: azure;
+            background-color: gainsboro;
         }
 
-        p {
+        p, th {
             text-align: center;
         }
 
         a {
             width: 100px;
-            color: black;
+            color: lightslategrey;
             font-size: 17px;
+            text-decoration: underline;
         }
 
         table {
-            width: 700px;
+            width: 1000px;
             margin: 30px auto;
         }
 
@@ -34,10 +35,28 @@
         }
 
         td {
-            border: 1px solid black;
+            border-top: 1px solid dimgrey;
             padding: 10px;
             text-align: center;
             font-size: 15px;
+        }
+
+
+        #search {
+            margin-left: 70px;
+            margin-top: 50px;
+            width: 170px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        #search:focus {
+            width:1000px;
+        }
+
+        #searchb {
+            margin-left: 70px;
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -46,6 +65,12 @@
 <p>
     <a href="/todo/add" class="link">add new todo</a>
 </p>
+<div class="container">
+    <form action="/todo/search", method="get">
+        <input id="search" type="text" name="search" placeholder="search toDos by name" /><br>
+        <input id="searchb" class="btn btn-info" role="button" type="submit" />
+    </form>
+</div>
 <table>
     <thead>
     <tr>
@@ -59,8 +84,8 @@
     <tr>
         <td th:text="*{id}"></td>
         <td th:text="*{title}"></td>
-        <td th:text="*{done} ? '✔' : 'x'"></td>
-        <td th:text="*{urgent} ? '✔' : 'x'"></td>
+        <td th:text="*{done} ? '✔︎' : '✘'" th:style="*{done} ? 'color:green;' : 'color:darkorange;'"></td>
+        <td th:text="*{urgent} ? '✔︎' : '✘'" th:style="*{urgent} ? 'color:green;' : 'color:darkorange;'"></td>
         <!--<td><a th:href="'/todo/' + *{id} + '/delete'"><button type="button" class="btn btn-warning" >delete</button></a></td>-->
         <!-- ha anchor tag-et hasznalok ott csak @getmapping endpointom lehet-->
         <form th:action="@{'/todo/' + ${todo.id} + '/delete'}" method="post">
