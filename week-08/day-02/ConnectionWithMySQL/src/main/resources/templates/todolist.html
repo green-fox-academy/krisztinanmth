@@ -2,11 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>toDos</title>
     <style>
         body {
             background-color: Dimgrey;
+            font-family: 'Mali', cursive;
         }
 
         p, th {
@@ -28,6 +30,7 @@
         h1 {
             text-align: center;
             color: orange;
+            margin-top: 45px;
         }
 
         th {
@@ -50,6 +53,7 @@
             width: 170px;
             -webkit-transition: width 0.4s ease-in-out;
             transition: width 0.4s ease-in-out;
+            padding: 5px;
         }
 
         #search:focus {
@@ -69,7 +73,7 @@
 </p>
 <div class="container">
     <form action="/todo/search", method="get">
-        <input id="search" type="text" name="search" placeholder="search toDos by action" /><br>
+        <input id="search" type="text" name="search" placeholder="search toDos" /><br>
         <input id="searchb" class="btn btn-info" role="button" type="submit" />
     </form>
 </div>

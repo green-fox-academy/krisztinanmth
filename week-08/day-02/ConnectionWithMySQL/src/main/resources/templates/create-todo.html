@@ -2,14 +2,50 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>create-todo</title>
+    <style>
 
+        body {
+            background-color: Dimgrey;
+            font-family: 'Mali', cursive;
+
+        }
+
+        h1 {
+            text-align: center;
+            color: orange;
+            margin-top: 45px;
+        }
+
+        #search {
+            margin-left: 75px;
+            margin-top: 30px;
+            width: 170px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            padding: 5px;
+        }
+
+        #search:focus {
+            width:1000px;
+        }
+
+        #searchb {
+            margin-left: 75px;
+            margin-top: 15px;
+        }
+
+    </style>
 </head>
-<body>
+<body class="container">
 <h1>add new todo</h1>
 <form action="#" th:action="@{'/todo/add'}" method="post">
-    <input type="text" name="title" required/><br>
-    <input type="submit" value="create"/>
+    <input id="search" type="text" name="title" required/><br>
+    <!--<input type="submit" value="create" />-->
+    <input id="searchb" class="btn btn-info" type="submit" value="create" />
 </form>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
