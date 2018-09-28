@@ -6,7 +6,7 @@
     <title>toDos</title>
     <style>
         body {
-            background-color: gainsboro;
+            background-color: Dimgrey;
         }
 
         p, th {
@@ -15,8 +15,8 @@
 
         a {
             width: 100px;
-            color: lightslategrey;
-            font-size: 17px;
+            color: SkyBlue;
+            font-size: 25px;
             text-decoration: underline;
         }
 
@@ -27,24 +27,26 @@
 
         h1 {
             text-align: center;
-            color: darkorange;
+            color: orange;
         }
 
         th {
-            font-size: 17px;
+            font-size: 20px;
+            color: WhiteSmoke;
         }
 
         td {
-            border-top: 1px solid dimgrey;
+            border-top: 1px solid Gainsboro;
             padding: 10px;
             text-align: center;
             font-size: 15px;
+            color: gainsboro;
         }
 
 
         #search {
-            margin-left: 70px;
-            margin-top: 50px;
+            margin-left: 55px;
+            margin-top: 30px;
             width: 170px;
             -webkit-transition: width 0.4s ease-in-out;
             transition: width 0.4s ease-in-out;
@@ -55,19 +57,19 @@
         }
 
         #searchb {
-            margin-left: 70px;
+            margin-left: 55px;
             margin-top: 15px;
         }
     </style>
 </head>
-<body>
+<body class="container">
 <h1>toDos for today</h1>
 <p>
     <a href="/todo/add" class="link">add new todo</a>
 </p>
 <div class="container">
     <form action="/todo/search", method="get">
-        <input id="search" type="text" name="search" placeholder="search toDos by name" /><br>
+        <input id="search" type="text" name="search" placeholder="search toDos by action" /><br>
         <input id="searchb" class="btn btn-info" role="button" type="submit" />
     </form>
 </div>
@@ -84,8 +86,8 @@
     <tr>
         <td th:text="*{id}"></td>
         <td th:text="*{title}"></td>
-        <td th:text="*{done} ? '✔︎' : '✘'" th:style="*{done} ? 'color:green;' : 'color:darkorange;'"></td>
-        <td th:text="*{urgent} ? '✔︎' : '✘'" th:style="*{urgent} ? 'color:green;' : 'color:darkorange;'"></td>
+        <td th:text="*{done} ? '✔︎' : '✘'" th:style="*{done} ? 'color:SkyBlue;' : 'color:orange;'"></td>
+        <td th:text="*{urgent} ? '✔︎' : '✘'" th:style="*{urgent} ? 'color:SkyBlue;' : 'color:orange;'"></td>
         <!--<td><a th:href="'/todo/' + *{id} + '/delete'"><button type="button" class="btn btn-warning" >delete</button></a></td>-->
         <!-- ha anchor tag-et hasznalok ott csak @getmapping endpointom lehet-->
         <form th:action="@{'/todo/' + ${todo.id} + '/delete'}" method="post">
