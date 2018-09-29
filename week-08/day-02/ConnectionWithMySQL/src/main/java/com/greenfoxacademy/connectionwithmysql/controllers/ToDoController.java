@@ -2,6 +2,7 @@ package com.greenfoxacademy.connectionwithmysql.controllers;
 
 import com.greenfoxacademy.connectionwithmysql.models.ToDo;
 import com.greenfoxacademy.connectionwithmysql.services.ToDoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ public class ToDoController {
 
   private ToDoService toDoService;
 
+  @Autowired
   public ToDoController(ToDoService toDoService) {
     this.toDoService = toDoService;
   }

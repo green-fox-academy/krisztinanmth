@@ -2,6 +2,7 @@ package com.greenfoxacademy.connectionwithmysql.services;
 
 import com.greenfoxacademy.connectionwithmysql.models.ToDo;
 import com.greenfoxacademy.connectionwithmysql.repositories.ToDoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ public class ToDoServiceImpl implements ToDoService {
 
   ToDoRepository toDoRepository;
 
+  @Autowired
   public ToDoServiceImpl(ToDoRepository toDoRepository) {
     this.toDoRepository = toDoRepository;
   }
