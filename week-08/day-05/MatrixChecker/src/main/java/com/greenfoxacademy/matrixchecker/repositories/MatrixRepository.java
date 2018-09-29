@@ -1,4 +1,11 @@
 package com.greenfoxacademy.matrixchecker.repositories;
 
-public interface MatrixRepository {
+import com.greenfoxacademy.matrixchecker.models.Matrix;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface MatrixRepository extends CrudRepository<Matrix, Long> {
+
+
 }
