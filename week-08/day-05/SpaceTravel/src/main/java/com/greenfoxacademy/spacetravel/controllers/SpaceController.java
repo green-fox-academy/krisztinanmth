@@ -38,7 +38,25 @@ public class SpaceController {
     spaceService.movePeopleToShip(shipId, planetId);
     return "redirect:/";
   }
+
+  @GetMapping("toplanet/{id}")
+  public String movePeopleToPlanet(@PathVariable(value = "id") Long planetId) {
+    spaceService.movePeopleToPlanet(shipId, planetId);
+    return "redirect:/";
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
