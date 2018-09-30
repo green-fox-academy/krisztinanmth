@@ -30,6 +30,20 @@ public class SpaceServiceImpl implements SpaceService {
   public Spaceship getShip(long id) {
     return spaceshipRepository.findById(id).get();
   }
+
+  @Override
+  public void moveShipToPlanet(long shipId, long planetId) {
+    Planet planet = planetRepository.findById(planetId).get();
+    Spaceship ship = spaceshipRepository.findById(shipId).get();
+    String planetName = planet.getName();
+
+    if (planetName.equals(ship.getPlanet())) {
+      return;
+    }
+
+    ship.setPlanet(planetName);
+    spaceshipRepository.save(ship);
+  }
 }
 
 

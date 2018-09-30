@@ -8,4 +8,5 @@ public interface SpaceService {
 
   List<Planet> getPlanets();
   Spaceship getShip(long id);
+  void moveShipToPlanet(long shipId, long planetId);
 }
