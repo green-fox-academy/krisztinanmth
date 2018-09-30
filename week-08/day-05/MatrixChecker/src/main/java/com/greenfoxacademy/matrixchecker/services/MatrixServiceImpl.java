@@ -41,6 +41,22 @@ public class MatrixServiceImpl implements MatrixService {
     return true;
   }
 
+//  public int[][] createMultiDimensionalMatrix(String inputNumbers) {
+//    String lines[] = createMatrix(inputNumbers);
+//    String[][] multiMatrixStringAr = new String[lines.length][];
+//
+//    for (int i = 0; i < lines.length; i++) {
+//      multiMatrixStringAr[i] = lines[i].split(" ");
+//    }
+//    int[][] multiMatrix = new int[multiMatrixStringAr.length][multiMatrixStringAr[0].length];
+//    for (int i = 0; i < multiMatrixStringAr.length; i++) {
+//      for (int j = 0; j < multiMatrixStringAr[i].length; j++) {
+//        multiMatrix[i][j] = Integer.parseInt(multiMatrixStringAr[i][j]);
+//      }
+//    }
+//    return multiMatrix;
+//  }
+
   @Override
   public String buildMatrixAsString(String[] matrix) {
     StringBuilder stringBuilder = new StringBuilder();
@@ -49,6 +65,21 @@ public class MatrixServiceImpl implements MatrixService {
     }
     return stringBuilder.toString();
   }
+
+//  @Override
+//  public boolean isMatrixIncreasing(String inputNumbers) {
+//    int[][] multiMatrix = createMultiDimensionalMatrix(inputNumbers);
+//    for (int i = 0; i < multiMatrix.length; i++) {
+//      for (int j = 0; j < multiMatrix[i].length; j++) {
+//        if (multiMatrix[i][j] < multiMatrix[i][j + 1] || multiMatrix[i][j] < multiMatrix[i + 1][j]) {
+//          setMessage("your matrix is decreasing, it should be increasing");
+//          return false;
+//        }
+//      }
+//    }
+//    setMessage("good, your matrix is increasing");
+//    return true;
+//  }
 
   @Override
   public boolean isMatrixIncreasing(String[] matrix) {
