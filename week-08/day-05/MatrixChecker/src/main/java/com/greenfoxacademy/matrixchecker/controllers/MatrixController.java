@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MatrixController {
@@ -20,16 +19,21 @@ public class MatrixController {
   }
 
   @GetMapping("/")
-  public String showIndex(@ModelAttribute("message") String message, Model model) {
-    model.addAttribute("inputNumbers", "");
-    model.addAttribute(message);
+  public String showIndex(Model model) {
+    model.addAttribute("message", matrixService.getMessage());
     return "index";
   }
 
   @PostMapping("/matrix")
-  public String postMatrix(@ModelAttribute("inputNumbers") String inputNumbers, RedirectAttributes redirectAttributes) {
-    String message = matrixService.printMessages(inputNumbers);
-    redirectAttributes.addFlashAttribute("message", message);
+  public String postMatrix(@ModelAttribute("inputNumbers") String inputNumbers) {
+    if (!matrixService.isMatrixEmpty(inputNumbers)) {
+      String[] matrix = matrixService.createMatrix(inputNumbers);
+      if (matrixService.isMatrixSquare(matrix)) {
+        if (matrixService.isMatrixIncreasing(matrix)) {
+          matrixService.saveMatrix(matrix);
+        }
+      }
+    }
     return "redirect:/";
   }
 }

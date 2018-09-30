@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class MatrixServiceImpl implements MatrixService {
 
   MatrixRepository matrixRepository;
+  private String message;
 
   @Autowired
   public MatrixServiceImpl(MatrixRepository matrixRepository) {
@@ -16,22 +17,24 @@ public class MatrixServiceImpl implements MatrixService {
   }
 
   @Override
-  public String printMessages(String inputNumbers) {
-    int[][] createdMatrix = createMatrix(inputNumbers);
-    if (!checkSquare(createdMatrix))
-      return "the matrix is not square, please try again";
-    if (!checkIfIncreasing(createdMatrix)) {
-      return "the matrix is not increasing";
-    }
-    matrixRepository.save(new Matrix(createdMatrix, inputNumbers));
-    return "the matrix is increasing";
+  public String[] createMatrix(String inputNumbers) {
+    return inputNumbers.split("\\r?\\n");
   }
 
+  @Override
+  public boolean isMatrixEmpty(String inputNumbers) {
+    if (inputNumbers.length() == 0) {
+      setMessage("please provide a matrix");
+      return true;
+    }
+    return false;
+  }
 
   @Override
-  public boolean checkSquare(int[][] createdMatrix) {
-    for (int i = 0; i < createdMatrix.length; i++) {
-      if (createdMatrix.length != createdMatrix[i].length) {
+  public boolean isMatrixSquare(String[] matrix) {
+    for (int i = 0; i < matrix.length; i++) {
+      if (matrix.length != matrix[i].length()) {
+        setMessage("your matrix is not square, please provide a square matrix");
         return false;
       }
     }
@@ -39,38 +42,37 @@ public class MatrixServiceImpl implements MatrixService {
   }
 
   @Override
-  public int[][] createMatrix(String inputNumbers) {
-    String lines[] = inputNumbers.split("\\r?\\n");
-    String[][] charsInLines = new String[lines.length][];
-    for (int i = 0; i < lines.length ; i++) {
-      charsInLines[i] = lines[i].split(" ");
+  public String buildMatrixAsString(String[] matrix) {
+    StringBuilder stringBuilder = new StringBuilder();
+    for (String character : matrix) {
+      stringBuilder.append(character);
     }
-    int[][] createdMatrix = new int[charsInLines.length][charsInLines[0].length];
-    for (int i = 0; i < charsInLines.length; i++) {
-      for (int j = 0; j < charsInLines.length; j++) {
-        createdMatrix[i][j] = Integer.parseInt(charsInLines[i][j]);
-      }
-    }
-    return createdMatrix;
+    return stringBuilder.toString();
   }
 
-//  @Override
-//  public void printValidationMessage(Matrix matrix) {
-//    if (matrix.isSquare()) {
-//      matrixRepository.save(matrix);
-//      matrix.setValidationMessage("this is a valid square matrix");
-//    }
-//    matrix.setValidationMessage("this matrix is not valid, please provide a square matrix");
-//  }
-//
   @Override
-  public boolean checkIfIncreasing(int[][] createdMatrix) {
-    for (int i = 0; i < createdMatrix.length; i++) {
-      for (int j = 0; j < createdMatrix[i].length; j++) {
-        if (createdMatrix[i][j] < createdMatrix[i][j + 1] && createdMatrix[i][j] < createdMatrix[i + 1][j]) {
-          return true;
-        }
+  public boolean isMatrixIncreasing(String[] matrix) {
+    String matrixAsString = buildMatrixAsString(matrix);
+    for (int i = 0; i < matrixAsString.length() - 1; i++) {
+      if (matrixAsString.charAt(i) < matrixAsString.charAt(i + 1)) {
+        setMessage("good, your matrix is increasing");
+        return true;
       }
-    } return false;
+    }
+    setMessage("your matrix is decreasing, it should be increasing");
+    return true;
+  }
+
+  @Override
+  public void saveMatrix(String[] matrix) {
+    matrixRepository.save(new Matrix(matrix));
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 }

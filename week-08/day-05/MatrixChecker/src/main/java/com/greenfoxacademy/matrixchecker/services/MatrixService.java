@@ -2,8 +2,11 @@ package com.greenfoxacademy.matrixchecker.services;
 
 public interface MatrixService {
 
-  String printMessages(String inputNumbers);
-  int[][] createMatrix(String inputNumbers);
-  boolean checkSquare(int[][] createdMatrix);
-  boolean checkIfIncreasing(int[][] createdMatrix);
+  String[] createMatrix(String inputNumbers);
+  boolean isMatrixEmpty(String inputNumbers);
+  boolean isMatrixSquare(String[] matrix);
+  String buildMatrixAsString(String[] matrix);
+  boolean isMatrixIncreasing(String[] matrix);
+  void saveMatrix(String[] matrix);
+  String getMessage();
 }
