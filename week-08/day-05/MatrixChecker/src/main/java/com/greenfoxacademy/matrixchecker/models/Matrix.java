@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
 
 @Entity
 public class Matrix {
@@ -13,11 +12,17 @@ public class Matrix {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String date;
+  private LocalDateTime date;
   private int[][] matrixNumbers;
+  private String inputNumbers;
 
   public Matrix() {
-    date = new SimpleDateFormat("yyyyMMdd_HH:mm:ss").format(Calendar.getInstance().getTime());
+  }
+
+  public Matrix(int[][] createdMatrix, String inputNumbers) {
+    this.date = LocalDateTime.now();
+    this.matrixNumbers = createdMatrix;
+    this.inputNumbers = inputNumbers;
   }
 
   public Long getId() {
@@ -28,19 +33,27 @@ public class Matrix {
     this.id = id;
   }
 
-  public String getDate() {
-    return date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
   public int[][] getMatrixNumbers() {
     return matrixNumbers;
   }
 
   public void setMatrixNumbers(int[][] matrixNumbers) {
     this.matrixNumbers = matrixNumbers;
+  }
+
+  public LocalDateTime getDate() {
+    return date;
+  }
+
+  public void setDate(LocalDateTime date) {
+    this.date = date;
+  }
+
+  public String getInputNumbers() {
+    return inputNumbers;
+  }
+
+  public void setInputNumbers(String inputNumbers) {
+    this.inputNumbers = inputNumbers;
   }
 }
