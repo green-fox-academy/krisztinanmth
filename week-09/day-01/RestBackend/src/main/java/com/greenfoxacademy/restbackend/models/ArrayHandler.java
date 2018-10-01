@@ -1,7 +1,9 @@
 package com.greenfoxacademy.restbackend.models;
 
+import javax.persistence.Entity;
 import java.util.List;
 
+@Entity
 public class ArrayHandler {
 
   private String what;
@@ -24,5 +26,13 @@ public class ArrayHandler {
 
   public void setNumbers(List<Integer> numbers) {
     this.numbers = numbers;
+  }
+
+  @Override
+  public String toString() {
+    return "ArrayHandler{" +
+      "what='" + what + '\'' +
+      ", numbers=" + numbers +
+      '}';
   }
 }

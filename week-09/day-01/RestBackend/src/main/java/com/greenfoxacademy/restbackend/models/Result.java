@@ -1,5 +1,8 @@
 package com.greenfoxacademy.restbackend.models;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Result {
 
   private Object result;
@@ -13,5 +16,12 @@ public class Result {
 
   public void setResult(Object result) {
     this.result = result;
+  }
+
+  @Override
+  public String toString() {
+    return "Result{" +
+      "result=" + result +
+      '}';
   }
 }

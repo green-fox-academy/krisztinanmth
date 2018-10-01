@@ -1,5 +1,8 @@
 package com.greenfoxacademy.restbackend.models;
 
+import javax.persistence.Entity;
+
+@Entity
 public class AppendThis {
 
   private String appended;
@@ -13,5 +16,12 @@ public class AppendThis {
 
   public void setAppended(String appendable) {
     this.appended = appendable + "a";
+  }
+
+  @Override
+  public String toString() {
+    return "AppendThis{" +
+      "appended='" + appended + '\'' +
+      '}';
   }
 }
