@@ -5,12 +5,10 @@ import com.greenfoxacademy.restbackend.services.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 public class MainRestController {
 
-  RestService restService;
+  private RestService restService;
 
   @Autowired
   public MainRestController(RestService restService) {
@@ -25,6 +23,7 @@ public class MainRestController {
       return error;
     }
     Doubling doubling = restService.doubleTheInput(numberToDouble);
+    restService.saveLog("/doubling", doubling.toString());
     return doubling;
   }
 
@@ -41,6 +40,7 @@ public class MainRestController {
     }
     WelcomeMessage welcomeMessage = new WelcomeMessage();
     welcomeMessage.setWelcome_message(name, title);
+    restService.saveLog("/greeter", welcomeMessage.toString());
     return welcomeMessage;
   }
 
@@ -48,6 +48,7 @@ public class MainRestController {
   public Object showAppended(@PathVariable(value = "appendable") String appendable) {
     AppendThis appendThis = new AppendThis();
     appendThis.setAppended(appendable);
+    restService.saveLog("/appenda/" + appendable, appendThis.toString());
     return appendThis;
   }
 
@@ -61,9 +62,11 @@ public class MainRestController {
     }
     if (action.equals("sum")) {
       result = restService.sumDoUntil(dountil.getUntil());
+      restService.saveLog("/dountil/sum", result.toString());
     }
     if (action.equals("factor")) {
       result = restService.factorDoUntil(dountil.getUntil());
+      restService.saveLog("/dountil/factor", result.toString());
     }
     return result;
   }
@@ -82,6 +85,7 @@ public class MainRestController {
     }
     if (arrayHandler.getWhat().equals("sum")) {
       result = restService.sumNumbers(arrayHandler.getNumbers());
+      restService.saveLog("/arrays/sum", arrayHandler.toString());
     }
     if (arrayHandler.getWhat().equals("multiply")) {
       result = restService.multiplyNumbers(arrayHandler.getNumbers());

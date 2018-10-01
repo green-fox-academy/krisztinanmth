@@ -1,7 +1,9 @@
 package com.greenfoxacademy.restbackend.services;
 
 import com.greenfoxacademy.restbackend.models.Doubling;
+import com.greenfoxacademy.restbackend.models.Log;
 import com.greenfoxacademy.restbackend.models.Result;
+import com.greenfoxacademy.restbackend.repositories.LogRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +12,11 @@ import java.util.List;
 @Service
 public class RestServiceImpl implements RestService {
 
+  private LogRepository logRepository;
+
+  public RestServiceImpl(LogRepository logRepository) {
+    this.logRepository = logRepository;
+  }
 
   @Override
   public Doubling doubleTheInput(Integer inputNumber) {
@@ -70,5 +77,15 @@ public class RestServiceImpl implements RestService {
       result.setResult(doubledElements);
     }
     return result;
+  }
+
+  @Override
+  public void saveLog(String endpoint, String data) {
+    logRepository.save(new Log(endpoint, data));
+  }
+
+  @Override
+  public List<Log> getAllLogs() {
+    return logRepository.findAll();
   }
 }
