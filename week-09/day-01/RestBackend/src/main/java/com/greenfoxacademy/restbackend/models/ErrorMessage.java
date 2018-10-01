@@ -1,8 +1,5 @@
 package com.greenfoxacademy.restbackend.models;
 
-import javax.persistence.Entity;
-
-@Entity
 public class ErrorMessage {
 
   private String error;

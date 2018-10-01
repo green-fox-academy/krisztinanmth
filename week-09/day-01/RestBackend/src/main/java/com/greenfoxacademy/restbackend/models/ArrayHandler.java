@@ -1,9 +1,7 @@
 package com.greenfoxacademy.restbackend.models;
 
-import javax.persistence.Entity;
 import java.util.List;
 
-@Entity
 public class ArrayHandler {
 
   private String what;

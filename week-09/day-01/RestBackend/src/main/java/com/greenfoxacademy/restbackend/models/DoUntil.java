@@ -1,8 +1,6 @@
 package com.greenfoxacademy.restbackend.models;
 
-import javax.persistence.Entity;
 
-@Entity
 public class DoUntil {
 
   private Integer until;
