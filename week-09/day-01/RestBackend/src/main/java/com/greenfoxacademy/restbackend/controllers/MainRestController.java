@@ -1,13 +1,9 @@
 package com.greenfoxacademy.restbackend.controllers;
 
-import com.greenfoxacademy.restbackend.models.Doubling;
-import com.greenfoxacademy.restbackend.models.ErrorMessage;
-import com.greenfoxacademy.restbackend.models.WelcomeMessage;
+import com.greenfoxacademy.restbackend.models.*;
 import com.greenfoxacademy.restbackend.services.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MainRestController {
@@ -37,12 +33,36 @@ public class MainRestController {
       error.setError("Please provide a name!");
       return error;
     }
-    if (title == null) {
+    if (title == null) { //itt nem lehet equals csak == mert meg nincs letrehozva
       error.setError("Please provide a title!");
       return error;
     }
     WelcomeMessage welcomeMessage = new WelcomeMessage();
     welcomeMessage.setWelcome_message(name, title);
     return welcomeMessage;
+  }
+
+  @GetMapping("/appenda/{appendable}")
+  public Object showAppended(@PathVariable(value = "appendable") String appendable) {
+    AppendThis appendThis = new AppendThis();
+    appendThis.setAppended(appendable);
+    return appendThis;
+  }
+
+  @PostMapping("/dountil/{action}")
+  public Object doUntil(@PathVariable(value = "action", required = false) String action, @RequestBody(required = false) DoUntil dountil) {
+    Result result = new Result();
+    if (dountil == null) {
+      ErrorMessage errorMessage = new ErrorMessage();
+      errorMessage.setError("Please provide a number!");
+      return errorMessage;
+    }
+    if (action.equals("sum")) {
+      result = restService.sumDoUntil(dountil.getUntil());
+    }
+    if (action.equals("factor")) {
+      result = restService.factorDoUntil(dountil.getUntil());
+    }
+    return result;
   }
 }
