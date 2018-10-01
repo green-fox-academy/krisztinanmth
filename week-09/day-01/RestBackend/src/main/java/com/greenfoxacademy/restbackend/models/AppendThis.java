@@ -4,6 +4,8 @@ public class AppendThis {
 
   private String appended;
 
+  public AppendThis() {
+  }
 
   public String getAppended() {
     return appended;

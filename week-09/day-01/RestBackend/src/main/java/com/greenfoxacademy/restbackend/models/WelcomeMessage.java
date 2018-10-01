@@ -4,6 +4,9 @@ public class WelcomeMessage {
 
   private String welcome_message;
 
+  public WelcomeMessage() {
+  }
+
   public String getWelcome_message() {
     return welcome_message;
   }
