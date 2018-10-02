@@ -57,6 +57,4 @@ public class MainRestControllerTest {
             .andExpect(jsonPath("$.error", is(expectedErrorMessage)))
             .andDo(print());
   }
-
-
 }
