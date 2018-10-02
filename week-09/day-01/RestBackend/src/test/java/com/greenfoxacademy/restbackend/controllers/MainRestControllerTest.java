@@ -47,5 +47,16 @@ public class MainRestControllerTest {
             .andDo(print());
   }
 
-  
+  @Test
+  public void doublingShouldReturnErrorMessage_when_noInput() throws Exception {
+
+    String expectedErrorMessage = "Please provide an input!";
+
+    mockMvc.perform(get("/doubling"))
+            .andExpect(content().contentType(contentType))
+            .andExpect(jsonPath("$.error", is(expectedErrorMessage)))
+            .andDo(print());
+  }
+
+
 }
