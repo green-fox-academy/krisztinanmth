@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="default">
+<head>
+    <meta charset="UTF-8" />
+    <title>hello</title>
+    <link rel="stylesheet" href="hello.css" /> <!--i still need to create this css file :)-->
+</head>
+<body>
+    <div layout:fragment="content">
+        <h1>hello world</h1>
+    </div>
+</body>
+<th:block layout:fragment="scripts">
+    <script src="hello/js"></script>
+    <!--  And at the bottom of the page we have added an additional js file.
+    We could also have added this to our HEAD element, but the problem is that
+    if our javascript file wanted access to, for example, jquery, then it would fail,
+    as jquery isn’t defined until the end of the page. By adding it to this fragment,
+    our javascript file (/js/hello.js) is the last file to be evaluated by the browser
+    (after jquery and bootstrap are initialised). -->
+</th:block>
+</html>
