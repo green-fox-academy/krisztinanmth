@@ -6,6 +6,6 @@ import java.util.List;
 public interface ShelterService {
 
   Shelter createShelter(String shelterName);
-
   List<Shelter> getShelters();
+  Shelter getShelterById(Long id);
 }
