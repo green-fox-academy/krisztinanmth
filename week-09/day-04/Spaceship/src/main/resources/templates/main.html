@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-    <th:block th:include="th-fragments :: head" />
+    <th:block th:include="thFragments :: head" />
 </head>
 <body>
-  <div>
+  <div class="container">
       <h1>Space Transporter</h1>
       <table class="table table-striped">
           <thead>
@@ -21,7 +19,7 @@
                    <td th:text="*{name}"></td>
                    <td th:text="*{population}"></td>
                    <td>
-                       <button th:if="${spaceship.planetName} != *{name}" type="submit" class="btn btn-sm btn-primary">move here</button>
+                       <button th:if="${spaceship.planetName} != *{name}" type="submit" class="btn btn-info">move here</button>
                        <span th:if="${spaceship.planetName} == *{name}">
                            <a href="#">← to planet</a>
                            <a href="#">to ship →</a>
@@ -33,6 +31,6 @@
           </tbody>
       </table>
   </div>
-  <script th:replace="th-fragments :: bootstrapjs"></script>
+  <script th:replace="thFragments :: bootstrapjs"></script>
 </body>
 </html>

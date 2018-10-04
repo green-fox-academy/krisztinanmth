@@ -22,7 +22,6 @@ public class Spaceship {
 //    this.planetName = planetName;
 //  }
 
-
   public Long getId() {
     return id;
   }
