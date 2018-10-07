@@ -10,4 +10,5 @@ import java.util.List;
 public interface AttractionRepository extends CrudRepository<Attraction, Long> {
 
   List<Attraction> findAll();
+  List<Attraction> findAllByCategoryOrderByPriceAsc(String category);
 }
