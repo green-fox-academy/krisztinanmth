@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <th:block th:include="thFragments :: head" />
 </head>
 <body>
-$END$
+    <div class="container" role="main">
+        <h1>tourist information</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>city</th>
+                    <th>price</th>
+                    <th>longitude</th>
+                    <th>latitude</th>
+                    <th>category</th>
+                    <th>duration</th>
+                    <th>recommended age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="attraction : ${attractions}" th:object="${attraction}">
+                    <td th:text="*{attractionName}"></td>
+                    <td th:text="*{city}"></td>
+                    <td th:text="*{price}"></td>
+                    <td th:text="*{longitude}"></td>
+                    <td th:text="*{latitude}"></td>
+                    <td th:text="*{category}"></td>
+                    <td th:text="*{duration}"></td>
+                    <td th:text="*{recommendedAge}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script th:replace="thFragments :: bootstrapjs"></script>
 </body>
 </html>
