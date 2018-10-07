@@ -18,12 +18,14 @@
                <form action="#" th:object="${planet}" method="post">
                    <td th:text="*{name}"></td>
                    <td th:text="*{population}"></td>
-                   <td>
-                       <button th:if="${spaceship.planetName} != *{name}" type="submit" class="btn btn-info">move here</button>
-                       <span th:if="${spaceship.planetName} == *{name}">
-                           <a href="#">← to planet</a>
-                           <a href="#">to ship →</a>
-                       </span>
+                   <td th:if="${spaceship.planetName} == *{name}">
+                       <a th:href="@{'/toplanet/' + *{id}}">← to planet</a>
+                       <a th:href="@{'/toship/' + *{id}}">to ship →</a>
+                   </td>
+                   <td th:unless="${spaceship.planetName} == *{name}">
+                       <form action="#" th:action="@{'/movehere/' + {id}}" method="post">
+                            <button type="submit" class="btn btn-info">move here</button>
+                       </form>
                    </td>
                    <td></td>
                </form>
