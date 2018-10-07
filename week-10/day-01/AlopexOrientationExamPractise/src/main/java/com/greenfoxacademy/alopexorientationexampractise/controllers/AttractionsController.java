@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AttractionsController {
@@ -29,7 +29,18 @@ public class AttractionsController {
 
   @PostMapping("/add")
   public String addNewAttraction(@ModelAttribute Attraction newAttraction) {
-    attractionService.creteNewAttraction(newAttraction);
+    attractionService.createNewAttraction(newAttraction);
     return "redirect:/";
+  }
+
+  @GetMapping("/edit/{id}")
+  public String editAttraction(@PathVariable("id") Long id, Model model) {
+    Attraction editedAttraction = attractionService.findById(id);
+    if (editedAttraction == null) {
+      return "redirect:/";
+    }
+    model.addAttribute("attractions", attractionService.getAllAttractions());
+    model.addAttribute("newAttraction", editedAttraction);
+    return "attractions";
   }
 }

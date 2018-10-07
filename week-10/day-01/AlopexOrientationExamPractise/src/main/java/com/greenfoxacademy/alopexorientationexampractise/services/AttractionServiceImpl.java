@@ -23,8 +23,13 @@ public class AttractionServiceImpl implements AttractionService{
   }
 
   @Override
-  public Attraction creteNewAttraction(Attraction newAttraction) {
+  public Attraction createNewAttraction(Attraction newAttraction) {
     return attractionRepository.save(newAttraction);
+  }
+
+  @Override
+  public Attraction findById(Long id) {
+    return attractionRepository.findById(id).get();
   }
 
 
