@@ -33,6 +33,27 @@
                 </tr>
             </tbody>
         </table>
+        <h2>add attraction</h2>
+        <form th:object="${newAttraction}" action="#" th:action="@{/add}" method="post">
+            <input type="number" th:field="*{id}" hidden/>
+            <label for="name">name</label><br>
+            <input type="text" th:field="*{attractionName}" id="name" required/><br>
+            <label for="city">city</label><br>
+            <input type="text" th:field="*{city}" id="city" required/><br>
+            <label for="price">price</label><br>
+            <input type="number" th:field="*{price}" id="price" required/><br>
+            <label for="longitude">longitude</label><br>
+            <input type="number" th:field="*{longitude}" id="longitude" required/><br>
+            <label for="latitude">latitude</label><br>
+            <input type="number" th:field="*{latitude}" id="latitude" required/><br>
+            <label for="category">category</label><br>
+            <input type="text" th:field="*{category}" id="category" required/><br>
+            <label for="duration">duration</label><br>
+            <input type="number" th:field="*{duration}" id="duration" required/><br>
+            <label for="recAge">recommended age</label><br>
+            <input type="number" th:field="*{recommendedAge}" id="recAge" required/><br>
+            <button type="submit" class="btn btn-info" th:style="'margin-top: 10px;'">submit</button>
+        </form>
     </div>
 <script th:replace="thFragments :: bootstrapjs"></script>
 </body>

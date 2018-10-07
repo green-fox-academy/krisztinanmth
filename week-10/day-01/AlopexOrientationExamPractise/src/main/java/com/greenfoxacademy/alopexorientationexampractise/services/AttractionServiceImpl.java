@@ -21,4 +21,11 @@ public class AttractionServiceImpl implements AttractionService{
   public List<Attraction> getAllAttractions() {
     return attractionRepository.findAll();
   }
+
+  @Override
+  public Attraction creteNewAttraction(Attraction newAttraction) {
+    return attractionRepository.save(newAttraction);
+  }
+
+
 }
