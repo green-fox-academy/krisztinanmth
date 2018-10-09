@@ -5,26 +5,26 @@ import java.util.List;
 
 public class Attractions {
 
-  private List<Attraction> cheapestAttractions;
+  private List<Attraction> attractions;
 
   public Attractions() {
-    cheapestAttractions = new ArrayList<>();
+    attractions = new ArrayList<>();
   }
 
   public Attractions(List<Attraction> attractions) {
-    this.cheapestAttractions = attractions;
+    this.attractions = attractions;
   }
 
   public List<Attraction> getListOfAttractions() {
-    return cheapestAttractions;
+    return attractions;
   }
 
   public void setListOfAttractions(List<Attraction> listOfAttractions) {
-    this.cheapestAttractions = listOfAttractions;
+    this.attractions = listOfAttractions;
   }
 
   public void addCheapestAttraction(Attraction attractions) {
-    this.cheapestAttractions.add(attractions);
+    this.attractions.add(attractions);
   }
 }
 

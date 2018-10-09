@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AttractionsRestController {
 
-  AttractionService attractionService;
+  private AttractionService attractionService;
 
   @Autowired
   public AttractionsRestController(AttractionService attractionService) {
