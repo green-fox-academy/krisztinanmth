@@ -71,3 +71,126 @@ console.log(abc);
 // - bonus for using the correct built in array method
 const numbers2 = [4, 5, 6, 7];
 numbers2.forEach((number) => console.log(number));
+
+// - Create an array named `s` with the following content: `[1, 2, 3, 8, 5, 6]`
+// - Change the 8 to 4 with the `.map` method 
+// - Print the fourth element as a test
+const s = [1, 2, 3, 8, 5, 6].map(num => num / 2);
+console.log(s[3]);
+
+// - Create a variable named `t` with the following content: `[1, 2, 3, 4, 5]`
+// - Increment the third element simply by accessing it
+// - Log the third element to the console
+const t = [1, 2, 3, 4, 5];
+
+function iterateThirdElement(inputArray) {
+    for (let i = 0; i < inputArray.length; i++) {
+        if (i == 2) {
+           inputArray[i] *= 2; 
+        }
+    }
+    return inputArray;
+}
+console.log(iterateThirdElement(t));
+
+// - Create a variable named `animals`
+//   with the following content: `['koal', 'pand', 'zebr']`
+// - Add all elements an `"a"` at the end
+// - try to use built in functions instead of loops
+const animals = ['koal', 'pand', 'zebr'];
+animals.forEach(animal => console.log(animal.concat('a')));
+
+// - Create an array variable named `drinks` with the following content: `['Gin', 'Whiskey', 'Wine', 'Beer']`
+// - Double all the strings in the array, use a built in array method instead of a loop
+// It should print: ['GinGin', 'WhiskeyWhiskey', 'WineWine', 'BeerBeer']`
+
+
+// const drinks = ['Gin', 'Whiskey', 'Wine', 'Beer'].every(drink => drink + drink);
+// console.log(drinks);
+//?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+
+// - Create a two dimensional list
+//   which can contain the different shades of specified colors
+// - In `colors[0]` store the shades of green:
+//   `"lime", "forest green", "olive", "pale green", "spring green"`
+// - In `colors[1]` store the shades of red:
+//   `"orange red", "red", "tomato"`
+// - In `colors[2]` store the shades of pink:
+//   `"orchid", "violet", "pink", "hot pink"`
+const colors = [
+    ['lime', 'forest green', 'olive', 'pale green', 'spring green'],
+    ['orange red', 'red', 'tomato'],
+    ['orchid', 'violet', 'pink', 'hot pink']
+];
+console.log(colors[0])
+console.log(colors[1])
+console.log(colors[2])
+
+// - Create a variable named `ai` with the following content: `[3, 4, 5, 6, 7]`
+// - Log the sum of the elements in `ai` to the console
+const ai = [3, 4, 5, 6, 7];
+
+function sumElementsOfArray(inputArray) {     //////    UNDEFINED ???????????????????????????????????????????????????????????????????????????????????
+    let sum = 0;
+    for (let i = 0; i < inputArray.length; i++) {
+        sum += inputArray[i];
+    }
+}
+console.log(sumElementsOfArray(ai));
+
+// - Create (dynamically*) a two dimensional list
+//   with the following matrix**. Use a loop!
+//
+//   0 0 0 1
+//   0 0 1 0
+//   0 1 0 0
+//   1 0 0 0
+//
+// - Print this two dimensional list to the console
+//
+// * size should depend on a variable
+// ** Relax, a matrix is just like an array
+
+function createMatrix(rows, cols) {   ////// EZT AZ EGESZ MATRIXOSAT CSINALD ELOLROL REGGEL!!!!!!!!!!!!!!!!!!!!!!!!!!
+    let matrixArray = [];
+    for (let i = 0; i < rows; i++) {
+        matrixArray.push([]);
+        matrixArray[i].push(new Array(cols));
+        for(var j=0; j < cols; j++){
+            if (matrixArray[i][j] != matrixArray[i][matrixArray.length - 1 - i]) {
+                console.log(1)
+            } else {
+                console.log(0);
+            }
+    
+        }
+    }
+}
+
+console.log(createMatrix(4, 4));
+
+
+function matrix( rows, cols, defaultValue){
+
+    var arr = [];
+  
+    // Creates all lines:
+    for(var i=0; i < rows; i++){
+  
+        // Creates an empty line
+        arr.push([]);
+  
+        // Adds cols to the empty line:
+        arr[i].push( new Array(cols));
+  
+        for(var j=0; j < cols; j++){
+          // Initializes:
+          arr[i][j] = defaultValue;
+        }
+    }
+  
+  return arr;
+  }
+
+  console.log(matrix(4, 4, 5));
