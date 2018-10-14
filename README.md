@@ -1,3 +1,5 @@
+https://github.com/krisztinanmth/react-redux-complete-playlist
+
 https://github.com/krisztinanmth/p2p-chat
 
 https://github.com/krisztinanmth/wanderer-java
