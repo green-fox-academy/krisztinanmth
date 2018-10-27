@@ -15,7 +15,8 @@ var names = animals.map(function(animal) {
 */
 
 var names = animals.map((animal) => animal.name)
-
+// or var names = animals.map((x) => x.name)
+//in functional programming it is common to name variables like the x above....
 /*
 var names = [];
 for (let i = 0; i < animals.length; i++) {
