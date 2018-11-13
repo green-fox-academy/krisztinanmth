@@ -1,7 +1,7 @@
 /*
-in this controller, we will be writing five(5) different functions namely:
+in this controller, there are five(5) different functions namely:
 list_all_tasks, create_a_task, read_a_task, update_a_task, delete_a_task.
-we will export each of the functions to use in our routes.
+each of the functions will be escorted to use in our routes.
 each of these functions uses different mongoose methods such as find, findById, findOneAndUpdate, save and remove.
 */
 'use strict';
