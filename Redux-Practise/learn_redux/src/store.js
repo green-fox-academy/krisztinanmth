@@ -10,3 +10,5 @@ const initialState = {
 };
 
 let store = createStore(reducer, initialState);
+
+export default store;
