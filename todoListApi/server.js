@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/Tododb');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const routes = require('.api/routes/todoListRoutes'); // importing routes
+const routes = require('./api/routes/todoListRoutes'); // importing routes
 
 app.listen(port);
 
