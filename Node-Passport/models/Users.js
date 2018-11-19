@@ -10,17 +10,17 @@ const UserSchema = new Schema({
   salt: String,
 });
 
-UserSchema.methods.setPassword = function(password) {
+UsersSchema.methods.setPassword = function(password) {
   this.salt = crypto.randomBytes(16).toString('hex');
   this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 };
 
-UserSchema.methods.validatePassword = function(password) {
+UsersSchema.methods.validatePassword = function(password) {
   const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
   return this.hash === hash;
 };
 
-UserSchema.methods.generateJWT = function() {
+UsersSchema.methods.generateJWT = function() {
   const today = new Date();
   const expirationDate = new Date(today);
   expirationDate.setDate(today.getDate() + 60);
@@ -32,7 +32,7 @@ UserSchema.methods.generateJWT = function() {
   }, 'secret');
 };
 
-UserSchema.methods.toAuthJSON = function() {
+UsersSchema.methods.toAuthJSON = function() {
   return {
     _id: this._id,
     email: this.email,
