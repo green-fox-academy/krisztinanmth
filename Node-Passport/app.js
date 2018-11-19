@@ -1,4 +1,4 @@
-
+// link for this tutorial https://medium.freecodecamp.org/learn-how-to-handle-authentication-with-node-using-passport-js-4a56ed18e81e
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -32,8 +32,9 @@ if(!isProduction) {
 mongoose.connect('mongodb://localhost/passport-tutorial');
 mongoose.set('debug', true);
 
-require('./models/Users');
-require('./config/Passport');
+// models and routes
+require('./models/users');
+require('./config/passport');
 
 //Error handlers & middlewares
 if(!isProduction) {
