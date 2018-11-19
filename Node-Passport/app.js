@@ -33,6 +33,7 @@ mongoose.connect('mongodb://localhost/passport-tutorial');
 mongoose.set('debug', true);
 
 require('./models/Users');
+require('./config/Passport');
 
 //Error handlers & middlewares
 if(!isProduction) {
