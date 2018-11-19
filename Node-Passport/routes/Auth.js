@@ -1,3 +1,8 @@
+/*
+in this file we use the function getTokenFromHeaders to get a JWT
+token that will be sent from the client side in the request’s headers.
+We also create an auth object with optional and required properties
+*/
 const jwt = require('express-jwt');
 
 const getTokenFromHeaders = (req) => {
