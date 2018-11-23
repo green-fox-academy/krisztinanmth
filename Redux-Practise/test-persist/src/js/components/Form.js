@@ -56,5 +56,7 @@ class ConnectedForm extends Component {
 }
 
 const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+// the first argument for connect must be nullwhen mapStateToProps is absent
+// otherwise you’ll get TypeError: dispatch is not a function
 
 export default Form;
