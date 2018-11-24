@@ -28,7 +28,7 @@ class ConnectedForm extends Component {
     event.preventDefault();
     const { title } = this.state;
     const id = uuidv1();
-    this.props.addArticle({ title, id });
+    this.props.addArticle({ title, id }); // relevant Redux part ... this line...this is where the action gets dispatched
     this.setState({ title: "" });
   }
 
@@ -54,6 +54,9 @@ class ConnectedForm extends Component {
   }
 }
 
-const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+const Form = connect(null, mapDispatchToProps)(ConnectedForm); // Form is the result of connecting ConnectedForm with the Redux Store
+// note - the first argument for connect must be null, when mapStateToProps is absent like in the Form example...
+// otherwise you'll get a TypeError: dispatch is not a function
+// mapDispatchToProps connects Redux actions to React props
 
 export default Form;
