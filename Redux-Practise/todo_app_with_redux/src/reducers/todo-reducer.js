@@ -3,21 +3,21 @@ import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../actions/action-types';
 const INITIAL_DATA = [];
 
 const todoReducer = (state = INITIAL_DATA, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case ADD_TODO:
-    return [
-      ...state, {
-        id: action.id,
-        text: action.text,
-        completed: false,
+      return [
+        ...state, {
+          id: action.id,
+          text: action.text,
+          completed: false,
       }
     ]
     case TOGGLE_TODO:
-    return state.map(todo =>
-    (todo.id === action.id) ? {...todo, completed: !todo.completed} : todo)
+      return state.map(todo =>
+      (todo.id === action.id) ? {...todo, completed: !todo.completed} : todo)
     case REMOVE_TODO:
-    const numIndex = parseInt(action.id)
-    return state.filter(todo => todo.id !== numIndex);
+      const numIndex = parseInt(action.id)
+      return state.filter(todo => todo.id !== numIndex);
     default:
     return state
   }
