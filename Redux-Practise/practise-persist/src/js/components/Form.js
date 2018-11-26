@@ -2,42 +2,36 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
 import { addArticle } from "../actions/index";
-
 const mapDispatchToProps = dispatch => {
   return {
     addArticle: article => dispatch(addArticle(article))
   };
 };
-
 class ConnectedForm extends Component {
   constructor() {
     super();
     this.state = {
       title: ""
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
-
   handleSubmit(event) {
     event.preventDefault();
     const { title } = this.state;
     const id = uuidv1();
-    this.props.addArticle({ title, id }); // relevant Redux part ... this line...this is where the action gets dispatched
+    this.props.addArticle({ title, id });
     this.setState({ title: "" });
   }
-
   render() {
     const { title } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">title</label>
+          <label htmlFor="title">Title</label>
           <input
             type="text"
             className="form-control"
@@ -53,10 +47,5 @@ class ConnectedForm extends Component {
     );
   }
 }
-
-const Form = connect(null, mapDispatchToProps)(ConnectedForm); // Form is the result of connecting ConnectedForm with the Redux Store
-// note - the first argument for connect must be null, when mapStateToProps is absent like in the Form example...
-// otherwise you'll get a TypeError: dispatch is not a function
-// mapDispatchToProps connects Redux actions to React props
-
+const Form = connect(null, mapDispatchToProps)(ConnectedForm);
 export default Form;
