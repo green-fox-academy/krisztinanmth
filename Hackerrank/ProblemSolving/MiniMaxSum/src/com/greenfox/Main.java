@@ -6,8 +6,8 @@ public class Main {
 
   // Complete the miniMaxSum function below.
   static void miniMaxSum(int[] arr) {
-    long miniSum = 0;
-    long maxiSum = 0;
+    long miniSum;
+    long maxiSum;
     long sum = 0;
     Arrays.sort(arr);
     for (int i = 0; i < arr.length; i++) {
