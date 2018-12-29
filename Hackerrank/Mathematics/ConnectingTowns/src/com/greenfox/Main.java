@@ -13,7 +13,7 @@ public class Main {
     for (int i = 0; i < n - 1; i++) {
       result = (result * (routes[i] % 1234567)) % 1234567;
     }
-    return result % 1234567;
+    return result;
   }
 
 
