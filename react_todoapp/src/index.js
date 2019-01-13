@@ -2,21 +2,32 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+// import { PersistGate } from 'redux-persist/integration/react';
 import App from './components/App';
 import rootReducer from './reducers';
-import persistor from './configureStore';
+// import persistor from './configureStore';
 
 const store = compose(window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)(rootReducer);
 
 render(
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
       <App />
-      </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
+
+// ********************************************************
+
+// render(
+//   <Provider store={store}>
+//     <PersistGate loading={null} persistor={persistor}>
+//       <App />
+//       </PersistGate>
+//   </Provider>,
+//   document.getElementById('root')
+// );
+
+// ****************************************************************
 
 // import { createStore } from 'redux';
 // import { persistStore, persistReducer } from 'redux-persist';
