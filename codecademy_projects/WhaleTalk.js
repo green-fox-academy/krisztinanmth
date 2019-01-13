@@ -6,7 +6,7 @@ const vowels = ['a', 'e', 'i', 'o', 'u'];
 
 let resultArray = [];
 
-const findAllVowels = (input, vowels) => {
+const findAndDoubleAllVowels = (input, vowels) => {
   for (let i = 0; i < input.length; i++) {
     for (let j = 0; j < vowels.length; j++) {
     	if (input[i] === vowels[j]) {
@@ -27,9 +27,14 @@ const findAllVowels = (input, vowels) => {
   return resultArray;
 }
 
-findAllVowels(input, vowels);
-console.log(resultArray.join('').toUpperCase());
-findAllVowels('Hi Human', vowels);
-console.log(resultArray.join('').toUpperCase());
-findAllVowels('turpentine and turtles', vowels);
-console.log(resultArray.join('').toUpperCase());
+const joinArrayAndCapitalize = array => array.join('').toUpperCase();
+
+
+findAndDoubleAllVowels(input, vowels);
+console.log(joinArrayAndCapitalize(resultArray));
+
+findAndDoubleAllVowels('Hi Human', vowels);
+console.log(joinArrayAndCapitalize(resultArray));
+
+findAndDoubleAllVowels('turpentine and turtles', vowels);
+console.log(joinArrayAndCapitalize(resultArray));
